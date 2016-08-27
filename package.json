@@ -8,5 +8,11 @@
     "talks"
   ],
   "author": "David Talabard",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^0.9.0"
+  },
+  "scripts": {
+    "start": "http-server --port 8080"
+  }
 }
