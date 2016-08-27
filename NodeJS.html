@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<title>Présentation NodeJS</title>
-	<link rel="stylesheet" href="node_modules/reveal/index.css">
-	<link rel="stylesheet" href="node_modules/reveal/theme/default.css" id="theme">	
+	<link rel="stylesheet" href="bower_components/reveal-js/css/reveal.min.css">
+	<link rel="stylesheet" href="bower_components/reveal-js/css/theme/default.css" id="theme">	
 	<!--Add support for earlier versions of Internet Explorer -->
 	<!--[if lt IE 9]>
 	<script src="node_modules/html5shiv/dist/html5shiv.min.js"></script>
@@ -23,14 +23,48 @@
 				<h1>NodeJS</h1>
 				<p>Environnement d'éxécution JavaScript</p>		
 			</section>
+			<section>
+				<section>
+					<h2>Présentation</h2>
+
+					<p>NodeJS est une plateforme développée par Ryan Dahl et son équipe</p>
+					<p>Elle est construite sur la base de l'exécuteur JavaScript de Google Chrome</p>
+				</section>
+				<section>
+					NodeJS permet entre autre :<br><br>
+					<ul>
+						<li>L'éxécution de scripts JavaScript coté serveur</li>
+						<li>Le développement d'applications modulables et évolutives</li>
+					</ul>	
+				</section>
+				<section>
+				    <pre>
+				    	<code data-trim>
+Exemple de code
+npm install
+					    </code>
+				    </pre>
+				</section>
+			</section>
 		</div>
 	</div>
-	<script src="node_modules/head/index.js"></script>
-	<script src="node_modules/reveal/index.js"></script>
+	<script src="bower_components/reveal-js/lib/js/classList.js"></script>
+	<script src="bower_components/reveal-js/lib/js/head.min.js"></script>
+	<script src="bower_components/reveal-js/js/reveal.min.js"></script>
 
 	<script>
 		// Required, even if empty.
-		Reveal.initialize({});
+		Reveal.initialize({
+		    dependencies: [
+
+		        // Syntax highlight for <code> elements
+		        { src: 'bower_components/reveal-js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+
+		    ]
+		});
+		// Shows the slide number using default formatting
+		Reveal.configure({ slideNumber: true });
+
 	</script>
 </body>
 </html>

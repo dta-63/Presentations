@@ -8,10 +8,5 @@
     "talks"
   ],
   "author": "David Talabard",
-  "license": "ISC",
-  "dependencies": {
-    "head": "^1.0.0",
-    "html5shiv": "^3.7.3",
-    "reveal": "0.0.4"
-  }
+  "license": "ISC"
 }

@@ -1,0 +1,24 @@
+{
+  "name": "talks",
+  "description": "Some talks about JavaScript, NodeJS, Grunt and the AngularJS Framework",
+  "main": "index.html",
+  "authors": [
+    "David Talabard"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "NodeJS",
+    "talks"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "reveal-js": "^2.6.2"
+  }
+}
