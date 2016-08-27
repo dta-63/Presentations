@@ -1,0 +1,17 @@
+{
+  "name": "talks",
+  "version": "1.0.0",
+  "description": "Some talks about JavaScript, NodeJS, Grunt and the AngularJS Framework",
+  "main": "index.html",
+  "keywords": [
+    "NodeJS",
+    "talks"
+  ],
+  "author": "David Talabard",
+  "license": "ISC",
+  "dependencies": {
+    "head": "^1.0.0",
+    "html5shiv": "^3.7.3",
+    "reveal": "0.0.4"
+  }
+}
