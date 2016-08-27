@@ -2,13 +2,9 @@
 <html lang="en">	
 <head>
 	<meta charset="utf-8">
-	<title>Présentation JavaScript</title>
-	<link rel="stylesheet" href="node_modules/reveal/index.css">
-	<link rel="stylesheet" href="node_modules/reveal/theme/default.css" id="theme">	
-	<!--Add support for earlier versions of Internet Explorer -->
-	<!--[if lt IE 9]>
-	<script src="node_modules/html5shiv/dist/html5shiv.min.js"></script>
-	<![endif]-->
+	<title>Présentation NodeJS</title>
+	<link rel="stylesheet" href="bower_components/reveal-js/css/reveal.min.css">
+	<link rel="stylesheet" href="bower_components/reveal-js/css/theme/default.css" id="theme">	
 </head>
 
 <body>
@@ -25,12 +21,24 @@
 			</section>
 		</div>
 	</div>
-	<script src="node_modules/head/index.js"></script>
-	<script src="node_modules/reveal/index.js"></script>
+
+	<script src="bower_components/reveal-js/lib/js/classList.js"></script>
+	<script src="bower_components/reveal-js/lib/js/head.min.js"></script>
+	<script src="bower_components/reveal-js/js/reveal.min.js"></script>
 
 	<script>
 		// Required, even if empty.
-		Reveal.initialize({});
+		Reveal.initialize({
+		    dependencies: [
+
+		        // Syntax highlight for <code> elements
+		        { src: 'bower_components/reveal-js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+
+		    ]
+		});
+		// Shows the slide number using default formatting
+		Reveal.configure({ slideNumber: true });
+
 	</script>
 </body>
 </html>
