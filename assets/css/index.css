@@ -1,3 +1,17 @@
-p{
+.reveal section p{
 	text-align:  left;
+}
+.reveal section pre,
+.reveal section img{
+    border: none;
+    background: none;
+    box-shadow: none;
+}
+
+.reveal footer {
+    position: absolute;
+    bottom: 1em;
+    left: 1em;
+    font-size: 0.5em;
+    color: #71cae9;
 }

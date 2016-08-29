@@ -5,6 +5,7 @@
 	<title>Présentation NodeJS</title>
 	<link rel="stylesheet" href="bower_components/reveal-js/css/reveal.min.css">
 	<link rel="stylesheet" href="bower_components/reveal-js/css/theme/moon.css" id="theme">	
+        <link rel="stylesheet" href="bower_components/reveal-js/lib/css/zenburn.css" >	
 	<link rel="stylesheet" href="assets/css/index.css">	
 </head>
 
@@ -14,43 +15,162 @@
 		<!-- Wrap all slides in a single "slides" class -->
 		<div class="slides">
 
-			<!-- ALL SLIDES GO HERE -->
-			<!-- Each section element contains an individual slide -->
-			<section>
-				<h1>NodeJS</h1>
-				<div>Environnement d'éxécution JavaScript</div>		
-			</section>
-			<section>
-				<section>
-					<h2>Présentation</h2>
+                    <!-- ALL SLIDES GO HERE -->
+                    <!-- Each section element contains an individual slide -->
+                    <section>
+                            <h1>NodeJS</h1>
+                            <div>Environnement d'éxécution JavaScript</div>		
+                    </section>
+                    <section>
+                        <section>
+                            <h2>Présentation</h2>
 
-					<p>NodeJS est une plateforme développée par Ryan Dahl et son équipe.</p>
-					<p>Elle est construite sur la base de l'exécuteur JavaScript de Google Chrome.</p><br>
-					<a href="https://nodejs.org/en/" target="_blank">Télécharger NodeJS</a>
-				</section>
-				<section>
-					NodeJS vous apporte :<br><br>
-					<ul>
-						<li>De l'éxécution de scripts JavaScript coté serveur</li>
-						<li>Le développement d'applications modulables et évolutives</li>
-					</ul>
-					<br><br>
-					<p>
-						Il inclut un gestionnaire de paquets pour les appliations JavaScript nommé <b>NPM</b>. <br><br>
-						NPM rend accessible un grand nombre de librairies Open Source dans le monde entier.
-					</p>	
-				</section>
-				<section>
-					<p>
-					</p>
-				</section>
-			</section>
-			<section>
-				<section>
-					<h2>Ecrire un script avec NodeJS</h2>
-				</section>
-			</section>
+                            <p>NodeJS est une plateforme développée par Ryan Dahl et son équipe. La première version publique date de 2011.</p><br>
+                            <p>Elle est construite sur la base de l'exécuteur JavaScript de Google Chrome.</p><br>
+                            <p>NodeJS est compatible avec tous les principaux systèmes d'exploitation.</p><br>
+                        </section>
+                        <section>
+                            <h3>NodeJS révolutionne le monde JavaScript</h3><br><br>
+                            <p>NodeJS permet l'éxécution de scripts JavaScript coté serveur.</p>
+
+                            <ul>
+                                    <li>Programmation évènementielle</li>
+                                    <li>Programmation asynchrone</li>
+                            </ul>
+                            <br><br>
+                            <p>Il n'y a aucune limite dans le développement d'applications modulables et évolutives grâce à un gestionnaire de paquets (modules) nommé <b>NPM</b>. </p>
+                            <br>
+                            <p>NPM rend accessible un grand nombre de librairies Open Source dans le monde entier.</p>	
+                        </section>
+                        <section>
+                                <div>
+                                    <img src="assets/images/nodejs.png"/><br><br><br>
+                                    <a href="https://nodejs.org/en/" target="_blank">Télécharger NodeJS</a>
+                                </div>
+                        </section>
+                        <section>
+                            <h3>Exemple</h3><br><br>
+                            <p>Création d'un fichier JavaScript index.js</p>
+                            <pre>
+                                <code contenteditable class="javascript">
+    console.log('test');
+                                </code>
+                            </pre>
+                             <p>Execution de ce fichier avec NodeJS</p>
+                            <pre>
+                                <code contenteditable class="bash">
+    > node index.js
+                                </code>
+                            </pre>
+                        </section>
+                        <section>
+                            <h3>Injection de dépendances</h3>
+                            <p>Indispensable pour le développement d'applications modulables.</p><br>
+                            <p>NodeJS gère cette injection via le mots clés <b>require</b> et <b>exports</b></p>
+                            <pre>
+                                <code contenteditable class="javascript">
+    //Contenu du fichier index.js                                
+    var server = require('./server');
+
+    server.start();
+                                </code>
+                            </pre>
+                             <pre>
+                                <code contenteditable class="javascript">
+    //Contenu du fichier server.js   
+    function start() {
+	console.log('Server started');
+    };
+
+    exports.start = start;
+                                </code>
+                            </pre>
+                        </section>
+                         <section>
+                            <h3>API NodeJS</h3>
+                            <p>NodeJS fournit une API qui propose un ensemble d'objets et  de fonctions. (modules)  <a href="https://nodejs.org/api/" target="_blank">Documentation complète</a><br></p><br>
+                            <p>Par exemple :</p>
+                            <ul>
+                                <li>fs</li>
+                                <li>http</li>
+                                <li>url</li>
+                                <li>crypto</li>
+                                <li>...</li>
+                            </ul>
+                        </section>
+                        <section>
+                             <h3>Un serveur HTTP basique avec NodeJS</h3>
+                             <pre>
+                                <code contenteditable class="javascript">    
+    //Contenu du fichier server.js   
+    var http = require('http');
+    // Server port
+    const PORT=8080; 
+
+    function handleRequest(request, response) {
+            response.writeHead(200, {"Content-Type": "text/plain"});
+            response.write("Test");
+            response.end();
+    };
+
+    function start() {
+            http.createServer(handleRequest).listen(PORT);
+            console.log('Server started');
+    };
+    exports.start = start;
+                                </code>
+                             </pre>
+                             <p>Cet exemple est très basique, pour aller plus loin, nous pouvons utiliser des <b>modules externes...</b>
+                        </section>
+                    </section>
+                    <section>
+                        <section>
+                            <h2>NPM (Node Package Manager)</h2>
+                            <p>NPM permet de gérer facilement les dépendances d'un projet. Ces dépendances peuvent être installées :</p><br>
+                            <ul>
+                               <li>Au niveau du projet (local)</li>
+                               <li>Au niveau global (Node)</li>
+                            </ul><br><br>
+                            <p>Elles sont installées dans le dossier <b>node_modules/</b> et sont référencées dans un fichier <b>package.json</b></p><br>
+                            <p>Pour trouver un module : <a href="https://www.npmjs.com" target="_blank">https://www.npmjs.com</a></p>
+                        </section>
+                        <section>
+                            <h3>Installation de modules</h3>
+                             <pre>
+                                <code contenteditable class="bash">
+    > npm init 
+    > npm install express --save 
+                                </code>
+                            </pre>
+                            <p>Pour une installation globale : options -g</p>
+                        </section>
+                        <section>
+                            <h3>Un serveur HTTP avec Express</h3>
+                            <pre>
+                                <code contenteditable class="javascript">
+    var express = require('express')
+    // Server port
+    const PORT=8080; 
+
+    function start() {
+            var app = express();
+
+            app.get('/test', function (req, res) {
+                    res.send('Test')
+            })
+            app.listen(PORT);
+            console.log('Server started');
+    };
+
+    exports.start = start;
+                                </code>
+                            </pre>
+                        </section>
+                    </section>
 		</div>
+                <footer>
+                    <img src="assets/images/modis.png"/><br> Présentation NodeJS - David Talabard - Septembre 2016.
+                </footer>
 	</div>
 	<script src="bower_components/reveal-js/lib/js/classList.js"></script>
 	<script src="bower_components/reveal-js/lib/js/head.min.js"></script>
@@ -59,7 +179,9 @@
 	<script>
 		// Required, even if empty.
 		Reveal.initialize({
-			history: true,
+                    history: true,
+                    width: 1100,
+                    transition: 'fade', // none/fade/slide/convex/concave/zoom
 		    dependencies: [
 
 		        // Syntax highlight for <code> elements
