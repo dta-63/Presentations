@@ -2,9 +2,10 @@
 <html lang="en">	
 <head>
 	<meta charset="utf-8">
-	<title>Présentation NodeJS</title>
+	<title>Présentation JavaScript</title>
 	<link rel="stylesheet" href="bower_components/reveal-js/css/reveal.min.css">
 	<link rel="stylesheet" href="bower_components/reveal-js/css/theme/moon.css" id="theme">	
+	 <link rel="stylesheet" href="bower_components/reveal-js/lib/css/zenburn.css" >	
 	<link rel="stylesheet" href="assets/css/index.css">	
 </head>
 
@@ -13,14 +14,76 @@
 	<div class="reveal">
 		<!-- Wrap all slides in a single "slides" class -->
 		<div class="slides">
-
-			<!-- ALL SLIDES GO HERE -->
-			<!-- Each section element contains an individual slide -->
-			<section>
-				<h1>JavaScript</h1>
-				<div>Programmation de base</div>		
-			</section>
+                    <!-- ALL SLIDES GO HERE -->
+                    <!-- Each section element contains an individual slide -->
+                    <section>
+                        <h1>JavaScript</h1>
+                        <div>Programmation de base</div>		
+                    </section>
+                    <section>
+                        <section>
+                            <h2>Introduction</h2>
+                            <ul>
+                                <li>Langage qui est apparue dans les années 90</li>
+                                <li>Langage "Client Side"</li>
+                                <li>Evolue constamment depuis sa création avec les normes ECMAScript</li>
+                            </ul><br><br>
+                            <img src="assets/images/js.png"/>
+                            <p>JavaScript est une implémentation d'ECMAScript et il y en a d'autres :</p>
+                            <ul>
+                                <li>JScript</li>
+                                <li>ActionScript</li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h2>Introduction</h2>
+                            <p>Le JavaScript permet entre autre :</p><br>
+                            <ul>
+                                <li>La manipulation du DOM (contenu et aspect)</li>
+                                <li>La réalisation de requête HTTP</li>
+                                <li>La gestion d’un modèle de données coté client</li>
+                            </ul><br><br>
+                            <p>Depuis quelques années, ce langage se démocratise coté serveur <a href='/NodeJS.html' target="_blank">NodeJS</a></p><br>
+                        </section>
+                        <section>
+                            <h2>Rappel sur HTML5</h2>
+                            <p>HTML5 est la dernière version du standard HTML spécifié par la W3C.</p>
+                            <img src="assets/images/html5.png"/>
+                            <p>Il améliore la richesse et l’interactivité des applications web et permet l'utilisation de médias riches.</p>
+                            <pre>
+                                <code contenteditable data-trim  class="html">
+    //Doctype html5
+< !DOCTYPE html >
+                                </code>
+                                <code contenteditable data-trim class="html">
+    // Encodage de la page
+<meta charset="utf-8">
+                                </code>
+                            </pre>
+                        </section>
+                        <section>
+                            <h2>Rappel sur HTML5</h2>
+                            <p>Cette évolution apporte une multitude de nouvelles fonctionnalités: </p><br>
+                            <ul>
+                                <li>Des balises sémantiques</li>
+                                <li>Des balises multimédias</li>
+                                <li>Des canvas</li>
+                                <li>Des améliorations sur la gestion des formulaires</li>
+                                <li>Du drag & drop</li>
+                                <li>Des Web sockets</li>
+                                <li>Des Web storages</li>
+                                <li>La gestion de base de données (SQLite)</li>
+                            </ul>
+                        </section>
+                    </section>
+                    <section>
+                        <h2>POO en JavaScript</h2>
+                    </section>
+                    
 		</div>
+                <footer>
+                    <img src="assets/images/modis.png"/><br> Présentation JavaScript - David Talabard - Septembre 2016.
+                </footer>
 	</div>
 
 	<script src="bower_components/reveal-js/lib/js/classList.js"></script>
@@ -30,7 +93,9 @@
 	<script>
 		// Required, even if empty.
 		Reveal.initialize({
-			history: true,
+                    history: true,
+                    width: 1100,
+                    transition: 'fade', // none/fade/slide/convex/concave/zoom
 		    dependencies: [
 
 		        // Syntax highlight for <code> elements
