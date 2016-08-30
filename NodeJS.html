@@ -47,14 +47,14 @@
                             <h3>Exemple</h3><br><br>
                             <p>Création d'un fichier JavaScript index.js</p>
                             <pre>
-                                <code contenteditable class="javascript">
-    console.log('test');
+                                <code contenteditable data-trim class="javascript">
+console.log('test');
                                 </code>
                             </pre>
                              <p>Execution de ce fichier avec NodeJS</p>
                             <pre>
-                                <code contenteditable class="bash">
-    > node index.js
+                                <code contenteditable data-trim class="bash">
+> node index.js
                                 </code>
                             </pre>
                         </section>
@@ -63,21 +63,21 @@
                             <p>Indispensable pour le développement d'applications modulables.</p><br>
                             <p>NodeJS gère cette injection via le mots clés <b>require</b> et <b>exports</b></p>
                             <pre>
-                                <code contenteditable class="javascript">
-    //Contenu du fichier index.js                                
-    var server = require('./server');
+                                <code contenteditable data-trim class="javascript">
+//Contenu du fichier index.js                                
+var server = require('./server');
 
-    server.start();
+server.start();
                                 </code>
                             </pre>
                              <pre>
-                                <code contenteditable class="javascript">
-    //Contenu du fichier server.js   
-    function start() {
-	console.log('Server started');
-    };
+                                <code contenteditable data-trim class="javascript">
+//Contenu du fichier server.js   
+function start() {
+    console.log('Server started');
+};
 
-    exports.start = start;
+exports.start = start;
                                 </code>
                             </pre>
                         </section>
@@ -96,23 +96,23 @@
                         <section>
                              <h3>Un serveur HTTP basique avec NodeJS</h3>
                              <pre>
-                                <code contenteditable class="javascript">    
-    //Contenu du fichier server.js   
-    var http = require('http');
-    // Server port
-    const PORT=8080; 
+                                <code contenteditable data-trim class="javascript">    
+//Contenu du fichier server.js   
+var http = require('http');
+// Server port
+const PORT=8080; 
 
-    function handleRequest(request, response) {
-            response.writeHead(200, {"Content-Type": "text/plain"});
-            response.write("Test");
-            response.end();
-    };
+function handleRequest(request, response) {
+    response.writeHead(200, {"Content-Type": "text/plain"});
+    response.write("Test");
+    response.end();
+};
 
-    function start() {
-            http.createServer(handleRequest).listen(PORT);
-            console.log('Server started');
-    };
-    exports.start = start;
+function start() {
+    http.createServer(handleRequest).listen(PORT);
+    console.log('Server started');
+};
+exports.start = start;
                                 </code>
                              </pre>
                              <p>Cet exemple est très basique, pour aller plus loin, nous pouvons utiliser des <b>modules externes...</b>
@@ -132,9 +132,9 @@
                         <section>
                             <h3>Installation de modules</h3>
                              <pre>
-                                <code contenteditable class="bash">
-    > npm init 
-    > npm install express --save 
+                                <code contenteditable data-trim class="bash">
+> npm init 
+> npm install express --save 
                                 </code>
                             </pre>
                             <p>Pour une installation globale : option -g</p>
@@ -142,22 +142,22 @@
                         <section>
                             <h3>Un serveur HTTP avec Express</h3>
                             <pre>
-                                <code contenteditable class="javascript">
-    var express = require('express')
-    // Server port
-    const PORT=8080; 
+                                <code contenteditable data-trim class="javascript">
+var express = require('express')
+// Server port
+const PORT=8080; 
 
-    function start() {
-            var app = express();
+function start() {
+    var app = express();
 
-            app.get('/test', function (req, res) {
-                    res.send('Test')
-            })
-            app.listen(PORT);
-            console.log('Server started');
-    };
+    app.get('/test', function (req, res) {
+        res.send('Test')
+    })
+    app.listen(PORT);
+    console.log('Server started');
+};
 
-    exports.start = start;
+exports.start = start;
                                 </code>
                             </pre>
                         </section>

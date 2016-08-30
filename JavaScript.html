@@ -54,9 +54,7 @@
                                 <code contenteditable data-trim  class="html">
     //Doctype html5
 < !DOCTYPE html >
-                                </code>
-                                <code contenteditable data-trim class="html">
-    // Encodage de la page
+// Encodage de la page
 <meta charset="utf-8">
                                 </code>
                             </pre>
@@ -94,21 +92,21 @@
                             <h3>Les objets - Notation littérale</h3>
                             <p>Un environnement JavaScript possède certains objets natifs prédéfinis. En plus de ces objets, il est possible de créer ses propres objets.</p>
                             <pre>
-                                <code contenteditable class="javascript">
-    // Association variable <--> JSON                               
-    var obj = {
-	a: 10,
-	b: 2,
-	
-	sum : function() {
-            return obj.a + obj.b;
-	}
-    }
+                                <code contenteditable data-trim class="javascript">
+// Association variable <--> JSON                               
+var obj = {
+    a: 10,
+    b: 2,
 
-    console.log("a:" + obj.a);
-    console.log("b:" + obj.b);
-    console.log("b:" + obj['b']);
-    console.log("sum:" + obj.sum());
+    sum : function() {
+        return obj.a + obj.b;
+    }
+}
+
+console.log("a:" + obj.a);
+console.log("b:" + obj.b);
+console.log("b:" + obj['b']);
+console.log("sum:" + obj.sum());
                                 </code>
                             </pre>
                         </section>
@@ -117,21 +115,21 @@
                             <h3>Les objets - Fonction constructeur</h3>
                             <p>Exemple de syntaxe avec usage de function, this, new.</p>
                              <pre>
-                                <code contenteditable class="javascript">
-    // Fonction constructeur                                
-    function Test(i, j) {
-	this.a = i;
-	this.b = j;
-	
-	this.sum = function() {
-            return this.a + this.b;
-	}
-    }
+                                <code contenteditable data-trim class="javascript">
+// Fonction constructeur                                
+function Test(i, j) {
+    this.a = i;
+    this.b = j;
 
-    var obj = new Test(10, 2);
-    console.log("a:" + obj.a);
-    console.log("b:" + obj.b);
-    console.log("sum:" + obj.sum());
+    this.sum = function() {
+        return this.a + this.b;
+    }
+}
+
+var obj = new Test(10, 2);
+console.log("a:" + obj.a);
+console.log("b:" + obj.b);
+console.log("sum:" + obj.sum());
                                 </code>
                              </pre>
                         <p>L'usage d'une notation ou d'une autre dépend de la réutilisabilité du code....</p>
@@ -142,17 +140,18 @@
                             <p>Chaque objet possède un contexte utilisable via le "this".</p>
                             <p>Les méthodes <b>apply</b> et <b>call</b> permettent l’appel d’une fonction pour un contexte donné.</p>
                              <pre>
-                                <code contenteditable class="javascript">
-    function Test(b) {
-	console.log("sum: " + (this.a + b));
-    }
+                                <code contenteditable data-trim class="javascript">
+function Test(b) {
+    console.log("sum: " + (this.a + b));
+}
 
-    var obj = {a: 2};
-    //Apply (passage de paramètres sous forme de tableau)
-    Test.apply(obj, [10]);
-    
-    //Call (passage de paramètres à l’appel de la fonction)
-    Test.call(obj, 10);
+var obj = {a: 2};
+
+//Apply (passage de paramètres sous forme de tableau)
+Test.apply(obj, [10]);
+
+//Call (passage de paramètres à l’appel de la fonction)
+Test.call(obj, 10);
                                 </code>
                              </pre>
                         </section>
