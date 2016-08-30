@@ -73,11 +73,89 @@
                                 <li>Des Web sockets</li>
                                 <li>Des Web storages</li>
                                 <li>La gestion de base de données (SQLite)</li>
-                            </ul>
+                            </ul><br><br>
+                            <p>Certains éléments obsolètes ont été supprimés</p>
                         </section>
                     </section>
                     <section>
-                        <h2>POO en JavaScript</h2>
+                        <section>
+                            <h2>POO en JavaScript</h2>
+                            <p>Les objets sont indispensables dans tout langage de programmation, en JavaScript, on les utilise sous certaines contraintes : </p><br>
+                             <ul>
+                                 <li>Le langage n'est pas typé</li>
+                                 <li>Il n'y a pas de notion de classe (ECMAScript 5)</li>
+                                 <li>Toute entité ou structure peut être vue en tant qu'objet</li>
+                                 <li>Le langage considère les objets en tant que tableau associatif</li>
+                                 <li>Les fonctions JavaScript sont pris en compte par le langage en tant qu'objet</li>
+                             </ul><br><br>
+                            <p><b>Remarque: </b>La signature des méthodes n’est pas un moyen de différenciation, seul le nom de la fonction compte.</p>
+                        </section>
+                         <section>
+                            <h3>Les objets - Notation littérale</h3>
+                            <p>Un environnement JavaScript possède certains objets natifs prédéfinis. En plus de ces objets, il est possible de créer ses propres objets.</p>
+                            <pre>
+                                <code contenteditable class="javascript">
+    // Association variable <--> JSON                               
+    var obj = {
+	a: 10,
+	b: 2,
+	
+	sum : function() {
+            return obj.a + obj.b;
+	}
+    }
+
+    console.log("a:" + obj.a);
+    console.log("b:" + obj.b);
+    console.log("b:" + obj['b']);
+    console.log("sum:" + obj.sum());
+                                </code>
+                            </pre>
+                        </section>
+                        
+                        <section>
+                            <h3>Les objets - Fonction constructeur</h3>
+                            <p>Exemple de syntaxe avec usage de function, this, new.</p>
+                             <pre>
+                                <code contenteditable class="javascript">
+    // Fonction constructeur                                
+    function Test(i, j) {
+	this.a = i;
+	this.b = j;
+	
+	this.sum = function() {
+            return this.a + this.b;
+	}
+    }
+
+    var obj = new Test(10, 2);
+    console.log("a:" + obj.a);
+    console.log("b:" + obj.b);
+    console.log("sum:" + obj.sum());
+                                </code>
+                             </pre>
+                        <p>L'usage d'une notation ou d'une autre dépend de la réutilisabilité du code....</p>
+
+                        </section>
+                        <section>
+                            <h3>Les objets - Contexte</h3>
+                            <p>Chaque objet possède un contexte utilisable via le "this".</p>
+                            <p>Les méthodes <b>apply</b> et <b>call</b> permettent l’appel d’une fonction pour un contexte donné.</p>
+                             <pre>
+                                <code contenteditable class="javascript">
+    function Test(b) {
+	console.log("sum: " + (this.a + b));
+    }
+
+    var obj = {a: 2};
+    //Apply (passage de paramètres sous forme de tableau)
+    Test.apply(obj, [10]);
+    
+    //Call (passage de paramètres à l’appel de la fonction)
+    Test.call(obj, 10);
+                                </code>
+                             </pre>
+                        </section>
                     </section>
                     
 		</div>
