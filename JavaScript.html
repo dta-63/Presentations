@@ -138,7 +138,7 @@ console.log("sum:" + obj.sum());
                         <section>
                             <h3>Les objets - Contexte</h3>
                             <p>Chaque objet possède un contexte utilisable via le "this".</p>
-                            <p>Les méthodes <b>apply</b> et <b>call</b> permettent l’appel d’une fonction pour un contexte donné.</p>
+                            <p>Les méthodes <b>apply</b> et <b>call</b> permettent l’appel d’une fonction pour un contexte passé en paramètre.</p>
                              <pre>
                                 <code contenteditable data-trim class="javascript">
 function Test(b) {
@@ -154,6 +154,86 @@ Test.apply(obj, [10]);
 Test.call(obj, 10);
                                 </code>
                              </pre>
+                        </section>
+                        <section>
+                            <h3>Les objets - Contexte</h3>
+                            <p>Une autre méthode permet la manipulation du contexte (this), il s'agit de la méthode <b>bind</b>.</p>
+                            <p>Contrairement à call et apply, bind déclare une nouvelle fonction.</p>
+                            <p>Cette méthode est fréquemment utilisée dans la gestion des évènements car elle n'appelle pas directement la fonction.</p>
+                        </section>
+                        <section>
+                            <h3>Le prototypage</h3>
+                            <p>Reprenons l'exemple de déclaration d'objet avec fonction constructeur :</p>
+                            <pre>
+                                <code contenteditable data-trim class="javascript">
+// Fonction constructeur                                
+function Test(i, j) {
+    this.a = i;
+    this.b = j;
+
+    this.sum = function() {
+        return this.a + this.b;
+    }
+}
+                                </code>
+                            </pre>
+                            <p>A chaque fois que la méthode de construction de l'objet est appelée, une nouvelle méthode « sum »  est créée pour l'objet.
+</p>
+                        </section>
+                        <section>
+                            <h3>Le prototypage</h3>
+                            <p>Cet aspect a des impacts sur les performances et la consommation mémoire surtout dans des applications JavaScript utilisant beaucoup d'objets.</p>
+                            <p>Le comportement souhaité serait que tous les objets pointent vers la méthode « sum ».</p><br><br>
+                            <div><b>Le prototypage est fait pour palier à ce problème.</b></div>
+                        </section>
+                        <section>
+                            <h3>Le prototypage</h3>
+                            <p>Le prototypage permet de définir une sorte de « modèle » pour les objets.</p>
+                            <p>Il est toujours important de définir une fonction constructeur pour déclarer la classe.</p>
+                            <p>Exemple :</p>
+                            <pre>
+                                <code contenteditable data-trim class="javascript">
+// Fonction constructeur                                
+function Test(i, j) {
+    this.a = i;
+    this.b = j;
+}
+
+Test.prototype.sum = function() {
+    return this.a + this.b;
+}
+                                </code>
+                            </pre>
+                        </section>
+                        <section>
+                            <h3>L'héritage</h3>
+                            <p>L'héritage peut être mis en oeuvre de 2 manières différentes :</p>
+                            <ul>
+                                <li>Avec la méthode call()</li>
+                                <li>Avec le prototype</li>
+                            </ul>
+                            <pre>
+                                <code contenteditable data-trim class="javascript">
+// Fonction constructeur                                
+function Test(i, j) {
+    this.a = i;
+    this.b = j;
+}
+
+Test.prototype.sum = function() {
+    return this.a + this.b;
+}
+
+// Héritage avec call
+function Test2(i, j, k) {
+    Test.call(this, i, j);
+}
+
+// Héritage avec le prototype
+Test2.prototype = new Test();
+
+                                </code>
+                            </pre>
                         </section>
                     </section>
                     
