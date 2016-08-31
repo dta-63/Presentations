@@ -207,14 +207,67 @@ Test.prototype.sum = function() {
                         </section>
                         <section>
                             <h3>L'héritage</h3>
-                            <p>L'héritage peut être mis en oeuvre de 2 manières différentes :</p>
-                            <ul>
-                                <li>Avec la méthode call()</li>
-                                <li>Avec le prototype</li>
-                            </ul>
+                            <p>L'héritage le plus basique consiste à hériter de la fonstion constructeur avec la méthode call (ou apply).</p>
                             <pre>
                                 <code contenteditable data-trim class="javascript">
 // Fonction constructeur                                
+function Test(i, j) {
+    this.a = i;
+    this.b = j;
+
+    this.sum = function() {
+        return this.a + this.b;
+    }
+}
+
+// Héritage avec call
+function Test2(i, j, k) {
+    Test.call(this, i, j);
+}
+
+
+                                </code>
+                            </pre>
+                            <p>Si les méthodes de la classe mère sont définies en dehors du constructeur via l'attribut prototype, l'héritage ne peut alors se faire.</p>
+                        </section>
+                        <section>
+                            <h3>L'héritage</h3>
+                            <p>L'héritage par prototype consiste simplement à remplacer la valeur du prototype de la classe fille par celui de la classe mère.</p>
+                            <pre>
+                                <code contenteditable data-trim class="javascript">
+// Héritage avec prototype
+Test2.prototype = new Test();
+
+                                </code>
+                            </pre>
+                        </section>
+                        <section>
+                            <h3>L'héritage</h3>
+                            <p>Certains frameworks JavaScript facilitent l'usage de l'héritage. (ex: Prototypejs)</p>
+                            <p>ECMAScript 6 a introduit un nouvel ensemble de mots-clés pour implémenter des classes. Cela ne transforme pas le modèle de JavaScript qui reste basé sur les prototypes. </p>
+                            <br>
+                            <p>Les nouveaux mots-clé incluent :</p>
+                            <ul>
+                                <li>class</li>
+                                <li>constructor</li>
+                                <li>static</li>
+                                <li>extend</li>
+                                <li>super</li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3>Contrôle de type</h3>
+                            <p>L'opérateur <b>typeof</b> renvoie une chaîne qui indique le type de son opérande.</p>
+                            <pre>
+                                <code contenteditable data-trim class="javascript">
+typeof 'test' === 'string';
+typeof 1234 === 'number';
+                                </code>
+                            </pre>
+                            <p>L'opérateur <b>instanceof</b> permet de vérifier si notre référence est d’un type.</p>
+                            <p>Tous les objets héritent de Object (Origine JAVA).</p>
+                            <pre>
+                                <code contenteditable data-trim class="javascript">
 function Test(i, j) {
     this.a = i;
     this.b = j;
@@ -224,19 +277,27 @@ Test.prototype.sum = function() {
     return this.a + this.b;
 }
 
-// Héritage avec call
-function Test2(i, j, k) {
-    Test.call(this, i, j);
-}
-
-// Héritage avec le prototype
-Test2.prototype = new Test();
-
+var obj = new Test(2, 10);
+console.log(obj instanceof Test);
                                 </code>
                             </pre>
                         </section>
                     </section>
-                    
+                    <section>
+                        <section>
+                            <h2>Manipulation du DOM</h2>
+                            <p>La variante HTML du DOM se décompose en éléments organisés d'une manière hiérarchique.</p>
+                            <p>Tout élément du DOM est un objet qui possède:</p>
+                            <ul>
+                                <li>Des propriétés</li>
+                                <li>Des méthodes</li>
+                                <li>Des évènements</li>
+                            </ul>
+                        </section>
+                    </section>
+                    <section>
+                        <h2>Bonnes pratiques</h2>
+                    </section>
 		</div>
                 <footer>
                     <img src="assets/images/modis.png"/><br> Présentation JavaScript - David Talabard - Septembre 2016.
