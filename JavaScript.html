@@ -287,16 +287,115 @@ console.log(obj instanceof Test);
                         <section>
                             <h2>Manipulation du DOM</h2>
                             <p>La variante HTML du DOM se décompose en éléments organisés d'une manière hiérarchique.</p>
-                            <p>Tout élément du DOM est un objet qui possède:</p>
+                            <p>Tout élément du DOM est un objet qui possède :</p>
                             <ul>
                                 <li>Des propriétés</li>
                                 <li>Des méthodes</li>
                                 <li>Des évènements</li>
                             </ul>
                         </section>
+                        <section>
+                            <h3>Accéder à un élément du DOM</h3>
+                            <p>De nombreuses fonctions existent pour accéder à un élément du DOM :</p>
+                            <ul>
+                                <li>Par ID</li>
+                                <li>Par Class</li>
+                                <li>Par Tag</li>
+                                <li><b>Par sélecteur CSS</b></li>
+                            </ul>
+                            <pre>
+                                <code contenteditable data-trim class="javascript">
+// Via l'attribut id
+document.getElementById('test');
+// Via l'attribut class (retourne un tableau)
+document.getElementsByClassName('input');
+// Via l'attribut name (retourne un tableau)
+document.getElementsByName('nom');
+// Via le nom de tag (retourne un tableau)
+document.getElementsByTagName('input');
+
+// Via un sélecteur CSS
+document.querySelector('input[type="text"]');
+document.querySelectorAll('input[type="text"]');
+                                </code>
+                            </pre>
+                        </section>
+                        <section>
+                            <h3>Accéder à un élément du DOM</h3>
+                            <p>Il existe déjà des tableaux prédéfinis afin de faciliter l'accès à certains types d'objets. </p>
+                            <ul>
+                                <li>document.images</li>
+                                <li>document.anchors</li>
+                                <li>document.forms</li>
+                                <li>document.links</li>
+                                <li>document.scripts</li>
+                                <li>...</li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3>Intéragir avec un élément du DOM</h3>
+                            <p>Via ses propriétés, méthodes et évènements.</p>
+                            <p>Par exemple :</p>
+                            <pre>
+                                <code contenteditable data-trim class="javascript">
+// Propriétés                            
+document.getElementById('test').style
+document.getElementsByTagName('a')[0].href
+
+// Méthodes
+document.getElementById('test').hasAttribute(‘href’)
+
+// Evènements
+document.getElementById('test').onclick = function(){...};
+document.getElementById('test').addEventListener("click", function(){
+    ...
+});
+                                </code>
+                            </pre>
+                        </section>
+                        <section>
+                            <h3>Gérer dynamiquement les éléments du DOM</h3>
+                            <ul>
+                                <li>Création</li>
+                                <li>Suppression</li>
+                                <li>Edition</li>
+                            </ul><br><br>
+                            <p>Exemple ajout d’un élément dans un liste :</p>
+                            <pre>
+                                <code contenteditable data-trim class="javascript">
+var node= document.createElement(‘li’);
+node.text(‘test’);
+document.getElementById('myList').appendChild(node);
+                                </code>
+                            </pre>
+                            <a href="http://www.w3schools.com/jsref/dom_obj_all.asp" target="_blank">Pour plus d'informations, cliquez ici</a><br><br>
+                            <p>La manipulation du DOM se fait rarement en natif, les Frameworks JavaScript facilitent grandement cet usage. (jQuery, Angular)</p>
+                        </section>
                     </section>
                     <section>
-                        <h2>Bonnes pratiques</h2>
+                        <section>
+                            <h2>Bonnes pratiques</h2>
+                        </section>
+                    </section>
+                    <section>
+                        <section>
+                            <h2>Les promises</h2>
+                        </section>
+                    </section>
+                    <section>
+                        <section>
+                            <h2>Stockage de données locales</h2>
+                        </section>
+                    </section>
+                    <section>
+                        <section>
+                            <h2>ECMAScript 2015 (ES6)</h2>
+                        </section>
+                    </section>
+                    <section>
+                        <section>
+                            <h2>TypeScript</h2>
+                        </section>
                     </section>
 		</div>
                 <footer>
