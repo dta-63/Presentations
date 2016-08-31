@@ -375,11 +375,79 @@ document.getElementById('myList').appendChild(node);
                     <section>
                         <section>
                             <h2>Bonnes pratiques</h2>
+                            <p>Afin d'optimiser les performances du DOM, il est important de : </p>
+                            <ul>
+                                <li>Limiter les changements de DOM au maximum</li>
+                                <li>Construire le nouveau rendu à intégrer au DOM dans sa globalité avant de l’insérer au document</li>
+                                <li>Limiter les évènements déclenchés de manière récurrente (Ex : resize et le scroll)</li>
+                                <li>Privilégier le Lazy loading des ressources non nécessaires (defer & Async)</li>
+                                <li>Mettre la déclaration des imports JS en bas du body</li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h2>Bonnes pratiques</h2>
+                            <p>Afin d'optimiser le code JavaScript :</p>
+                            <ul>
+                                <li>Eviter de déclarer des variables sans « var ». La variable se retrouvera globale</li>
+                                <li>Privilégier les prototypes pour les déclarations de structures</li>
+                                <li>Remplacer la concaténation par une insertion dans un tableau avant de lier les différents éléments du tableau</li>
+                            </ul>
+                            <pre>
+                                <code  contenteditable data-trim class="javascript">
+var string = '123' + '456';
+var string =['123', '456'].join();
+
+                                </code>
+                            </pre>
+                        </section>
+                         <section>
+                            <h2>Bonnes pratiques</h2>
+                            <ul>
+                                <li>Privilégier l'usage des fonctions de bases de JS au maximum et éviter les surcouches des différents Framework du marché</li>
+                                <li>Ecriture du code JS en module qu’on concatène et minifie</li>
+                                <li>Déclarer JavaScript en mode strict
+                                    <pre>
+                                        <code contenteditable data-trim class="javascript">
+"use strict";
+var x = 123;
+                                        </code>
+                                    </pre>
+                                </li>
+                            </ul>
+                        </section>
+                         <section>
+                            <h2>Bonnes pratiques</h2>
+                            <ul>
+                                <li>Utiliser les namespaces JavaScript pour un code réutilisable
+                                    <pre>
+                                        <code  contenteditable data-trim class="javascript">
+// Namespace
+var Namespace = Namespace || {};
+Namespace.test = function() {
+    ...
+}
+                                        </code>
+                                    </pre>
+                                </li>
+                                <li>Utiliser les fonctions pour le code non réutilisable et fermé
+                                    <pre>
+                                        <code  contenteditable data-trim class="javascript">
+// Fonction de fermeture
+(function(){
+    var x = 123;
+    console.log(x);
+})();
+                                        </code>
+                                    </pre>
+                                </li>
+                            </ul>
+                           
                         </section>
                     </section>
                     <section>
                         <section>
                             <h2>Les promises</h2>
+
                         </section>
                     </section>
                     <section>
