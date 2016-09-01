@@ -485,6 +485,7 @@ document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
                         </section>
                         <section>
                             <h3>Les Web storages</h3>
+                            <p>Les Web storages sont fournis par HTML5avec les caractéristiques suivantes :</p>
                              <ul>
                                 <li>Stockage de données plus variées</li>
                                 <li>Associé à un unique domaine</li>
@@ -518,6 +519,33 @@ localStorage.setItem('Test2', JSON.stringify({a: 2, b: 10}));
                                 </code>
                             </pre>
                             <img src="assets/images/localStorage.png"/>
+                        </section>
+                        <section>
+                            <h3>Web SQL</h3>
+                            <p>L'API Web SQL est aussi fournie par HTML5 et repose sur SQLite.</p>
+                            <p>Elle permet la gestion de tables comme une BDD classique, mais accessible directement dans le navigateur.</p><br>
+                            <p>Elle s'avère très utile dans un contexte mobile pour gérer un mode « hors-ligne » .</p>
+                            <ul>
+                                <li>Cordova</li>
+                                <li>Ionic</li>
+                            </ul><br><br>
+                            <p>Certains outils facilitent l'utilisation de la base de données (JavaScript ORM : persistencejs)</p>
+                        </section>
+                        <section>
+                            <h3>Exemple d'utilisation des Web SQL</h3>
+                            <pre>
+                                <code  contenteditable data-trim class="javascript">
+if(window.openDatabase){
+    var db = openDatabase('test', '1.0', 'database', 2000000, function(db) {
+        db.changeVersion('','1.0');
+    });
+    
+    db.transaction(function(tx){
+        tx.executeSql('CREATE TABLE t1 (id, name)');
+    });
+}
+                                </code>
+                            </pre>
                         </section>
                     </section>
                     <section>
