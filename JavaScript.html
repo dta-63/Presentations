@@ -524,7 +524,7 @@ localStorage.setItem('Test2', JSON.stringify({a: 2, b: 10}));
                             <h3>Web SQL</h3>
                             <p>L'API Web SQL est aussi fournie par HTML5 et repose sur SQLite.</p>
                             <p>Elle permet la gestion de tables comme une BDD classique, mais accessible directement dans le navigateur.</p><br>
-                            <p>Elle s'avère très utile dans un contexte mobile pour gérer un mode « hors-ligne » .</p>
+                            <p>Elle s'avère très utile dans un contexte mobile pour gérer un mode « hors-ligne ».</p>
                             <ul>
                                 <li>Cordova</li>
                                 <li>Ionic</li>
@@ -551,7 +551,67 @@ if(window.openDatabase){
                     <section>
                         <section>
                             <h2>ECMAScript 2015 (ES6)</h2>
+                            <p>ES6 est la nouvelle norme JavaScript qui adopte des nouvelles syntaxse afin d'améliorer la structure et la lisibilité des projets.</p>
+                            <p>Cette version prend beaucoup de temps a être standardisée et les navigateurs n'implémentent que des versions non finalisées d'ES6.</p>
+                            <br>
+                            <p>Il est toutefois possible de l'utiliser aujourd'hui avec des compilateurs JavaScript :</p>
+                            <ul>
+                                <li>Traceur</li>
+                                <li>BabelJS (utilisé par Netflix, Yahoo, spotify...)</li>
+                            </ul>
                         </section>
+                        <section>
+                            <h3>Nouveautés</h3>
+                            <ul>
+                                <li>Les variables locales (let)</li>
+                                <li>Les classes (class, extend, super, static)</li>
+                                <li>Les modules</li>
+                                <li>Les arguments peuvent prendre une valeur par défaut</li>
+                                <li>Les chaines de caractères supportent l’interpolation</li>
+                                <li>...</li>
+                            </ul><br><br>
+                            <p><a href="http://kangax.github.io/compat-table/es6/" target="_blank">Tableau de compatibilité ES6</a></p>
+                        </section>
+                         <section>
+                            <h3>Les classes</h3>
+                            <p>La syntaxe se rapproche beaucoup des langages de POO classiques.</p>
+                            <pre>
+                                <code  contenteditable data-trim class="javascript">
+class Test {
+    constructor(a, b) {
+        this.a = a;
+        this.b = b;
+    }
+    
+    sum() {
+        return this.a + this.b;
+    }
+};
+
+// Usage
+let test = new Test(2, 10);
+console.log(test.sum());
+                                </code>
+                            </pre>
+                        </section>
+                        <section>
+                            <h3>Les modules</h3>
+                            <p>Ce concept améliore considérablement la réutilisabilité du code.</p>
+                            <pre>
+                                <code  contenteditable data-trim class="javascript">
+module Test {
+    export function sum(a = 2, b = 10) {
+        return x + y;
+    }
+}
+// Usage
+import {sum} from Test;
+console.log(sum());
+                                </code>
+                            </pre>
+                            <p>Une bonne pratique serait de décomposer chaque fonctionnalité en module.</p>
+                        </section>
+                        
                     </section>
                     <section>
                         <section>
