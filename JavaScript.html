@@ -453,6 +453,71 @@ Namespace.test = function() {
                     <section>
                         <section>
                             <h2>Stockage de données locales</h2>
+                            <p>Une page Web est dites « state less », cependant la plupart des sites ont besoin de stocker des données (authentification, préférences utilisateur...)</p>
+                            <p>Les <b>cookies</b> sont les premiers outils pour remédier à ce problème.</p><br>
+                            <p>D’autres outils plus puissants sont apparus par la suite :</p>
+                            <ul>
+                                <li>Local Storage / session storage</li>
+                                <li>Base de données Web SQL</li>
+                            </ul><br><br>
+                            <p>La manipulation de ces objets est inclue en native dans JavaScript.</p>
+                        </section>
+                        <section>
+                            <h3>Les cookies</h3>
+                            <p>Un cookie est un moyen de persistence simple qui a les caractéristiques suivantes :</p>
+                             <ul>
+                                <li>Système clé/valeur</li>
+                                <li>Date d'expiration</li>
+                                <li>Domaines associés (Peut être partagé entre plusieurs domaines)</li>
+                                <li>Taille limitée à 4Ko</li>
+                            </ul>
+                            <pre>
+                                <code  contenteditable data-trim class="javascript">
+// Ecriture
+document.cookie = "username=David Talabard; expires=Thu, 08 Sep 2016 12:00:00 UTC";
+// Lecture
+var cookie = document.cookie;
+// Suppression
+document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+
+                                </code>
+                            </pre>
+                        </section>
+                        <section>
+                            <h3>Les Web storages</h3>
+                             <ul>
+                                <li>Stockage de données plus variées</li>
+                                <li>Associé à un unique domaine</li>
+                                <li>Taille limitée à environ 10Mo (en fonction des navigateurs)</li>
+                             </ul><br><br>
+                            <p>Deux objets sont mis à disposition : <b>Session storage</b> et <b>Local storage</b></p>
+                        </section>
+                        <section>
+                            <h3>Session storage</h3>
+                             <ul>
+                                 <li><b>Objet sessionStorage</b></li>
+                                <li>Stockage de données  sur la durée d'une session de navigation</li>
+                                <li>Portée limitée à la fenêtre ou l'onglet actif</li>
+                                <li>La perte de session ou fermeture de la fenêtre entraine une perte de données</li>
+                             </ul>
+                        </section>
+                        <section>
+                            <h3>Local storage</h3>
+                             <ul>
+                                 <li><b>Objet localStorage</b></li>
+                                <li>Stockage de données  sans durée de vie</li>
+                                <li>Pour un même domaine, les données du local storage peuvent être exploitées dans différents onglets (fenêtres)</li>
+                             </ul>
+                        </section>
+                        <section>
+                            <h3>Exemple d'utilisation des Web Storages</h3>
+                            <pre>
+                                <code  contenteditable data-trim class="javascript">
+localStorage.setItem('Test', '123456');
+localStorage.setItem('Test2', JSON.stringify({a: 2, b: 10}));
+                                </code>
+                            </pre>
+                            <img src="assets/images/localStorage.png"/>
                         </section>
                     </section>
                     <section>
