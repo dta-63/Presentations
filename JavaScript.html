@@ -616,6 +616,61 @@ console.log(sum());
                     <section>
                         <section>
                             <h2>TypeScript</h2>
+                            <p>TypeScript est un langage développé par Microsoft qui date de 2012.</p>
+                            <p>Il s'agit d'une surcouche au JavaScript.</p>
+                            <p>Au même titre que ES6, TypeScript présente les caractéristiques suivantes :
+                                <ul>
+                                    <li>Programmation orientée objet classique</li>
+                                    <li>Modularité</li>
+                                    <li>Etape de compilation</li>
+                                </ul>
+                        </p><br><br>
+                            <p>Quelques particularités de TypeScript :</p>
+                            <ul>
+                                <li>Typage des variables (sécurisation du code)</li>
+                                <li>POO plus complète avec classes abstraites, interfaces, enums...</li>
+                                <li>Decorateurs</li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3>Le typage</h3>
+                            <p>Le typage TypeScript est vérifié au moment de la compilation mais reste cependant optionnel. (any)</p>
+                            <pre>
+                                <code  contenteditable data-trim class="javascript">
+var a: string = '123456';
+// Le code suivant ne compilera pas
+a = 123456;
+var b: any = '123456';
+// Le code suivant compilera
+b = 123456;
+                                </code>
+                            </pre>
+                            <p>Le typage s'avère très utile lorsqu'un module exporte des fonctions.</p>
+                        </section>
+                        <section>
+                            <h3>Les interfaces</h3>
+                            <p>TypeScript se rapproche fortement de la syntaxe JAVA/C# pour la POO.</p>
+                            <pre>
+                                <code  contenteditable data-trim class="javascript">
+interface Math {
+    sum(): number;
+}
+
+class Test implements Math {
+    private a: number;
+    private b: number;
+    
+    constructor(a: number, b: number) {
+        this.a = a;
+        this.b = b;
+    }
+    
+    sum() {
+        return this.a + this.b;
+    }
+}
+                                </code>
+                            </pre>
                         </section>
                     </section>
 		</div>
