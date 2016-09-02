@@ -447,7 +447,51 @@ Namespace.test = function() {
                     <section>
                         <section>
                             <h2>Les promises</h2>
-
+                            <p>Une promise est un objet JavaScript correspondant au résultat différé d'une opération asynchrone.</p>
+                            <p>JavaScript est mono-thread, il est donc impossible de déclencher plusieurs traitements en parallèle.</p>
+                            <p>La fonction va juste démarrer l'opération et renvoyer immédiatement une promise qui est un résultat différé.</p>
+                            <br>
+                            <p>Les promises ont une méthode then() qui permet la gestion du résultat, elle prend 2 paramètres :
+                                <ul>
+                                    <li>resolve</li>
+                                    <li>reject</li>
+                                </ul>
+                            </p>
+                        </section>
+                        <section>
+                            <h2>Les états d'une promise</h2>
+                            <p>Une promise est forcément dans un de ces états :</p>
+                            <ul>
+                                <li>En attente</li>
+                                <li>Tenue</li>
+                                <li>Rompue</li>
+                                <li>Acquitée</li>
+                            </ul><br>
+                            <img src="assets/images/promises.png">
+                        </section>
+                         <section>
+                            <h2>Gestion de l'AJAX</h2>
+                            <p>Exemple d'utilisation de promise avec l'objet XMLHttpRequest pour réaliser une requête asynchrone.</p>
+                            <pre>
+                                <code  contenteditable data-trim class="javascript">
+new Promise(function(resolve, reject) {
+    var req = new XMLHttpRequest();
+    req.open('GET', '...');
+    req.onload = function() {
+        if (req.status === 200) {
+            resolve(req.response);
+        }
+        else {
+            reject(req.statusText);
+        }
+    };
+    req.onerror = function() {
+        reject("Network Error");
+    };
+    req.send();
+});
+                                </code>
+                            </pre>
                         </section>
                     </section>
                     <section>
