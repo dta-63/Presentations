@@ -2,9 +2,10 @@
 <html lang="en">	
 <head>
 	<meta charset="utf-8">
-	<title>Présentation NodeJS</title>
+	<title>Présentation AngularJS</title>
 	<link rel="stylesheet" href="bower_components/reveal-js/css/reveal.min.css">
 	<link rel="stylesheet" href="bower_components/reveal-js/css/theme/moon.css" id="theme">	
+	<link rel="stylesheet" href="bower_components/reveal-js/lib/css/zenburn.css" >	
 	<link rel="stylesheet" href="assets/css/index.css">	
 </head>
 
@@ -21,7 +22,11 @@
 				<div>Un Framework JavaScript</div>		
 			</section>
 		</div>
+		<footer>
+            <img src="assets/images/modis.png"/><br> Présentation JavaScript - David Talabard - Septembre 2016.
+        </footer>
 	</div>
+
 	<script src="bower_components/reveal-js/lib/js/classList.js"></script>
 	<script src="bower_components/reveal-js/lib/js/head.min.js"></script>
 	<script src="bower_components/reveal-js/js/reveal.min.js"></script>
@@ -29,7 +34,9 @@
 	<script>
 		// Required, even if empty.
 		Reveal.initialize({
-			history: true,
+                    history: true,
+                    width: 1100,
+                    transition: 'fade', // none/fade/slide/convex/concave/zoom
 		    dependencies: [
 
 		        // Syntax highlight for <code> elements

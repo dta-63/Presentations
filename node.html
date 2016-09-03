@@ -131,7 +131,7 @@ exports.start = start;
                         </section>
                         <section>
                             <h3>Installation de modules</h3>
-                             <pre>
+                            <pre>
                                 <code contenteditable data-trim class="bash">
 > npm init 
 > npm install express --save 
@@ -162,10 +162,30 @@ exports.start = start;
                             </pre>
                         </section>
                     </section>
+                    <section>
+                        <section>
+                            <h2>Bower</h2>
+                            <p>Au même titre que NPM, Bower est un gestionnaire de dépendances qui est plus orienté Front-end.</p>
+                            <img src="assets/images/bower.png" width="230">
+                            <p>Il fonctionne en s’appuyant sur github pour télécharger les composants grâce à des tables de correspondances "name" : "url"</p>
+                        </section>
+                        <section>
+                            <h3>Installation</h3>
+                            <p>Son fonctionnement est similaire à NPM</p>
+                             <pre>
+                                    <code contenteditable data-trim class="bash">
+> npm install bower -g 
+> bower init
+> bower install angular --save
+                                </code>
+                            </pre>
+                            <p>Les dépendances sont installées dans le dossier <b>bower_components/</b> et sont référencées dans un fichier <b>bower.json</b></p>
+                        </section>
+                    </section>
 		</div>
-                <footer>
-                    <img src="assets/images/modis.png"/><br> Présentation NodeJS - David Talabard - Septembre 2016.
-                </footer>
+        <footer>
+            <img src="assets/images/modis.png"/><br> Présentation NodeJS - David Talabard - Septembre 2016.
+        </footer>
 	</div>
 	<script src="bower_components/reveal-js/lib/js/classList.js"></script>
 	<script src="bower_components/reveal-js/lib/js/head.min.js"></script>
