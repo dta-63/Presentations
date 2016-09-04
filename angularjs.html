@@ -95,6 +95,81 @@
 					<p>ng-app est la directive qui définie le scope d’un traitement AngularJS.</p>
 				</section>
 			</section>
+			<section>
+				<section>
+					<h2>Les modules</h2>
+					<p>Angular utilise une logique modulaire.</p>
+					<p>Découper l’application en modules afin de faciliter :
+						<ul>
+							<li>La maintenabilité</li>
+							<li>La testabilité</li>
+						</ul>
+					</p><br><br>
+					<p>Chaque module va contenir contrôleur, vues, services ...</p>
+					<p>Bonnes pratiques :
+						<ul>
+							<li>Un module par fonctionnalité</li>
+							<li>Un module par composant réutilisable</li>
+						</ul>
+					</p>
+				</section>
+				<section>
+					<h3>Déclarer un module</h3>
+					<p>Nous avons déjà vu précédemment qu’un module principal était nécessaire pour initialiser l’application AngularJS.</p>
+					<pre>
+						<code contenteditable data-trim class="javascript">
+// Déclaration d'un module						
+var module = angular.module('test', []);	
+// Injection de ce module dans le main module
+var app = angular.module('app', ['test']);					
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h3>Les modules AngularJS</h3>
+					<p>La librairie AngularJS se compose : 
+						<ul>
+							<li>D'un fichier "core"</li>
+							<li>De fichiers additionnels (Modules) qui peuvent être installés avec Bower</li>
+						</ul>
+					</p><br><br>
+					<p> Voici quelques modules Angular :
+						<ul>
+							<li>ngCookies, pour la gestion des cookies</li>
+							<li>ngResource, pour interagir avec un serveur REST</li>
+							<li>ngMessages, pour les messages dans les templates</li>
+							<li>ngAnimate, pour les animations</li>
+							<li>ngSanitize, module particulier pour vérifier le HTML.</li>
+							<li>ngTouch, pour les évènements liés au mobile (swipe par exemple)</li>
+						</ul>
+					</p>
+				</section>
+				<section>
+					<h3>Les modules AngularJS</h3>
+					<p>Téléchargement de dépendances :</p>
+					<pre>
+						<code contenteditable data-trim class="bash">
+> bower install angular-cookies			
+> bower install angular-resource			
+						</code>
+					</pre>
+					<p>Inclusion des fichiers :</p>
+					<pre>
+						<code contenteditable data-trim class="html">
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>	
+<script src="bower_components/angular-resource/angular-resource.js"></script>		
+						</code>
+					</pre>
+					<p>Inclusion des modules au main module :</p>
+					<pre>
+						<code contenteditable data-trim class="javascript">
+// Injection des dans le main module
+var app = angular.module('app', ['ngCookies', 'ngResource']);					
+						</code>
+					</pre>
+				</section>
+			</section>
 		</div>
 		<footer>
             <img src="assets/images/modis.png"/><br> Présentation JavaScript - David Talabard - Septembre 2016.
