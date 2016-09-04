@@ -87,7 +87,25 @@ grunt.registerTask('default', []);
 						<li>grunt-contrib-jshint</li>
 						<li>...</li>
 					</ul>
-				</section>			
+				</section>	
+				<section>
+					<h3>Exemple de copy de fichiers</h3>
+					<pre>
+						<code contenteditable data-trim class="javascript">
+copy: {
+    dist: {
+        files: [{
+            expand: true,
+            dest: 'dist',
+            src: [
+                '**/**'
+            ]
+        }]
+    }
+}
+						</code>
+					</pre>
+				</section>	
 			</section>
 		</div>
 	 	<footer>
