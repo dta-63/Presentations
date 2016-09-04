@@ -21,6 +21,80 @@
 				<h1>AngularJS</h1>
 				<div>Un Framework JavaScript</div>		
 			</section>
+			<section>
+				<section>
+					<h2>Introduction</h2>
+					<p>Créé par Google en 2009 afin de faciliter la testabilité et la maintenabilité des applications front-end.</p>
+					<img src="assets/images/angular.png" width="160">
+					<p>AngularJS s'oriente autour de quelques concepts clés : </p>
+					<ul>
+						<li>Pattern MVVM (MVW)</li>
+						<li>Data binding (bi-directionnel)</li>
+						<li>Modularité</li>
+						<li>Routing</li>
+						<li>Injection de dépendances</li>
+						<li>Manipulation du DOM (directives)</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Introduction</h2>
+					<p>Il s’agit d’un des Frameworks JavaScript les plus appréciés pour réaliser des Single Page Application.</p>
+					<p>Il en existe bien d'autres : </p>
+					<ul>
+						<li>Backbone</li>
+						<li>ReactJS</li>
+						<li>Ember</li>
+						<li>...</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Introduction</h2>
+					<p>Actuellement, AngularJS est en version 1.5.8.</p>
+					<p>La version 2 est en Release Candidate et devrait sortir prochainement.</p><br><br>
+					<p>Support :</p>
+					<ul>
+						<li>Principaux navigateurs récents</li>
+						<li>IE >= 9 (IE8 a été abandonné depuis la version 1.3)</li>
+						<li>Android browser</li>
+						<li>IOS</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Pattern MVVM</h2>
+					<p>AngularJS se base sur le pattern Model View ViewModel (MVVM).</p>
+					<p>Il s'agit pour vulgariser d'un pattern MVC accentué par un data binding évennementiel.</p>
+					<img src="assets/images/MVVM1.png">
+					<img src="assets/images/MVVM2.png">
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Installation</h2>
+					<p>Inclure la librairie avec bower</p>
+					<pre>
+						<code contenteditable data-trim class="bash">
+> bower install angular
+						</code>
+					</pre>
+					<p>Définir le contexte d’exécution d’AngularJS (rootScope)</p>
+					<pre class="left">
+						<code contenteditable data-trim class="html">
+<div ng-app="app"></div>
+						</code>
+					</pre>
+					<pre class="right">
+						<code contenteditable data-trim class="javascript">
+(function(angular) {
+	'use strict';
+
+	//Module principal
+	angular.module('app', []);
+})(window.angular);
+						</code>
+					</pre><br><br><br><br><br><br>
+					<p>ng-app est la directive qui définie le scope d’un traitement AngularJS.</p>
+				</section>
+			</section>
 		</div>
 		<footer>
             <img src="assets/images/modis.png"/><br> Présentation JavaScript - David Talabard - Septembre 2016.
