@@ -171,7 +171,152 @@ var app = angular.module('app', ['ngCookies', 'ngResource']);
 				</section>
 			</section>
 			<section>
-				<h2>Le templating </h2>
+				<section>
+					<h2>Le templating</h2>
+					<p>Angular permet l’écriture d’expression dynamique dans les templates.</p>
+					<p>Syntaxe {{ }} pour indiquer une expression à évaluer</p>
+					<p>Cette expression doit être une expression JavaScript valable
+	</p>
+					<pre>
+						<code contenteditable data-trim class="javascript">
+{{ 2 + 2 }}					
+{{ a + b }}					
+{{ person.name }}					
+{{ items[0] }}					
+						</code>
+					</pre>
+					<p>Les variables utilisées dans une expression ne sont pas recherchées dans l’object «window» mais un «scope».</p>
+					Voir aussi <a href="http://handlebarsjs.com/">http://handlebarsjs.com/
+	</a>
+				</section>
+				<section>
+					<h3>Le data binding</h3>
+					<p>Angular permet un double binding des données entre la vue et le modèle.</p>
+					<p>Il est donc très facile de maintenir l’affichage des champs en accord avec le modèle.</p>
+					<pre>
+						<code contenteditable data-trim class="html">
+<input type="text" ng-model="name" placeholder="Name..." />
+<div>Model : {{ name }}</div>				
+						</code>
+					</pre>
+					<img src="assets/images/two-way-data-binding.png">
+				</section>
+				<section>
+					<h3>Le scope</h3>
+					<p>Le scope représente le modèle de l’application et le contexte d’exécution pour les expressions.</p>
+					<p>Tous les scopes sont organisés de manière hiérarchique et héritent du scope applicatif rootScope.</p>
+					<p>Le scope sert de « glue » entre la view et le controller.</p>
+					<img src="assets/images/scope.png" width="550">
+
+				</section>
+				<section>
+					<h3>Les contrôleurs</h3>
+					<p>Lié une vue à un contrôleur via la directive ng-controller.</p>
+					<p>Le contrôleur contiendra un ensemble de variables et méthodes accessibles depuis la vue grâce à l’objet scope.</p>
+					<img src="assets/images/controller.png" width="550">
+				</section>
+				<section>
+					<h3>Les contrôleurs</h3>
+					<p>La déclaration d’un contrôleur est simple, il s’agit d’une simple fonction.</p>
+					<p>Cette fonction doit être référencée dans le Framework :</p>
+					<pre class="left">
+						<code contenteditable data-trim class="javascript">
+var app = angular.module('app');
+app.controller('Test', function(){
+	this.name = 'my name';
+});
+						</code>
+					</pre>
+					<pre class="right">
+						<code contenteditable data-trim class="html">
+<div ng-controller="Test as ctrl">
+	<input type="text" ng-model="ctrl.name"/>
+	<div>Model : {{ ctrl.name }}</div>
+</div>				
+						</code>
+					</pre>
+
+					<pre class="left">
+						<code contenteditable data-trim class="javascript">
+var app = angular.module('app');
+app.controller('Test', function($scope){
+	$scope.name = 'my name';
+});
+						</code>
+					</pre>
+					<pre class="right">
+						<code contenteditable data-trim class="html">
+<div ng-controller="Test">
+	<input type="text" ng-model="name"/>
+	<div>Model : {{ name }}</div>
+</div>				
+						</code>
+					</pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>L'injection de dépendances</h2>
+					<p>Il s'agit d'un principe de base du Framework.</p>
+					<p>Elle permet l’utilisation d’objet sans s’occuper de l’instanciation.</p>
+
+					<pre>
+						<code data-trim data-noescape class="javascript">
+app.controller('Test', function(<mark>$scope</mark>){
+	$scope.name = 'my name';
+});
+						</code>
+					</pre>
+					<p>L’injection de dépendance peut se faire sur tout objet référencé dans angular (controller, service…)</p>
+				</section>
+				<section>
+					<h3>Injection par tableaux</h3>
+					<pre>
+						<code data-trim data-noescape class="javascript">
+// Déclaration avec injection de dépendances
+app.controller('Test', ['$scope', 'service', function(a, b){
+	a.name = 'my name';
+}]);
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h3>Injection avec $inject</h3>
+					<pre>
+						<code data-trim data-noescape class="javascript">
+//Constructeur du contrôleur
+var Test = function(a, b) {
+	a.name = 'my name';
+}
+
+//Injection
+Test.$inject = ['$scope', 'service'];
+
+// Instanciation
+app.controller('Test', Test);
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h3>Injection implicite</h3>
+					<p>Attention à la minification (ng-annotate).</p>
+					<pre>
+						<code data-trim data-noescape class="javascript">
+app.controller('Test', function($scope){
+	$scope.name = 'my name';
+});
+						</code>
+					</pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Les directives</h2>
+					<p>Nous les avons déjà utilisé (ng-app, ng-controller).</p>
+					<p>Une directive est un comportement que l’on va associé à un élément du DOM.</p>
+					<p>Elle peut être utilisée en tant qu’élément à par entière, attribut, nom de classe, commentaire.</p><br><br>
+					<p>Le compilateur HTML d’Angular va associé un comportement aux directives présentes dans le template</p>
+				</section>
 			</section>
 		</div>
 		<footer>
