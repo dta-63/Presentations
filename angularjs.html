@@ -696,7 +696,7 @@ var lowercaseName = $filter('lowercase')(name);
 					<p>Au même titre que les contrôleur, services et directives, ils peuvent être référencés dans le framework.</p>
 					<pre>
 						<code  data-trim data-noescape class="javascript">
-app.filtre('myFilter', function() {
+app.filter('myFilter', function() {
 	return function() {
 		...
 	};
@@ -705,12 +705,112 @@ app.filtre('myFilter', function() {
 					</pre>
 				</section>
 			</section>
+
 			<section>
-				<h2>Les components</h2>
+				<section>
+					<h2>Le routing</h2>
+					<p>Angular fournit des modules pour gérer la navigation dans le site web.</p>
+					<ul>
+						<li>ng-route</li>
+						<li>ui-router</li>
+						<li>component-router (depuis Angular 1.5)</li>
+				</section>
+				<section>
+					<h3>ng-route</h3>
+					<p>Il s'agit du premier routeur d'AngularJS.</p>
+					<p>Aujourd'hui, d'autres routeurs plus évolués sont apparus car ng-route a les inconvénients suivants :</p>
+					<ul>
+						<li>Transitions par URL</li>
+						<li>Utilisation de beaucoup de directives</li>
+						<li>Hiérarchie de scope qui se complexifie</li>
+					</ul>
+					<p>----> ui-router</p>
+				</section>
+				<section>
+					<h3>ui-router</h3>
+					<p>Ui-router permet de gérer les transitions par états.</p>
+					<p>Tous les états ne nécessitent pas forcément une url (ex: modal)</p>
+					<p>Il permet donc de concevoir les états dont l’application aura besoin.</p><br><br>
+					<p>Les states peuvent être configurés en « across module » </p>
+				</section>
+				<section>
+					<h3>Les services d'ui-router</h3>
+					<ul>
+						<li>$stateProvider : définit l’état des transitions</li><br><br>
+						<li>$state : transition à un autre état, vérifie quel est l’état courant</li><br><br>
+						<li>$stateParams  récupère le chemin et les paramètres de la requête pour l’état courant</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Déclaration de state</h3>
+					<pre>
+						<code  data-trim data-noescape class="javascript">
+$stateProvider.state('root', {
+	views : {
+		'header': {
+			templateUrl: 'app/common/header/header.html'
+		}
+	}
+});
+//Les états peuvent comme ci-dessous hériter les uns des autres.
+stateProvider.state('root.test', {
+    url: '/test',
+    views: {
+        'main@': {
+            templateUrl: 'app/test/list.html',
+            controller: 'testCtrl'
+        }
+    }
+});
+						</code>
+					</pre>
+					<pre>
+						<code  data-trim class="html">
+<ui-view name="header"></ui-view>
+<ui-view name="main"></ui-view>
+						</code>
+					</pre>
+					
+				</section>
+				<section>
+					<h3>Navigation entre états</h3>
+					<p>Ui-router permet une gestion des transitions (navigation), de deux manières :</p>
+					<ul>
+						<li>En JavaScript</li>
+						<pre>
+							<code  data-trim class="javascript">
+	$state.go('root.test');
+							</code>
+						</pre>
+						<li>Dans le template</li>
+						<pre>
+							<code  data-trim class="html">
+	<a ui-sref="root.test">Test</a>
+							</code>
+						</pre>
+					</ul>
+				</section>
 			</section>
+
 			<section>
-				<h2>Le routing</h2>
+				<section>
+					<h2>Internationalisation</h2>
+				</section>
 			</section>
+
+			<section>
+				<section>
+					<h2>Validation de formulaire</h2>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h2>Nouveauté Angular 1.5</h2>
+				</section>
+			</section>
+
+			
 		</div>
 		<footer>
             <img src="assets/images/modis.png"/><br> Présentation JavaScript - David Talabard - Septembre 2016.
