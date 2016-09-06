@@ -795,6 +795,51 @@ stateProvider.state('root.test', {
 			<section>
 				<section>
 					<h2>Internationalisation</h2>
+					<p>Angular-translate est la référence en matière d’internationalisation.</p>
+					<p>Après installation du module, il suffit juste de configurer le provider $translateProvider au niveau du module de l’application</p>
+					<pre>
+							<code  data-trim class="javascript">
+var translations = {
+	'app.title': 'AngularJS'
+};
+$translateProvider.translations('en', translations);
+						</code>
+					</pre>
+					<p>Il est possible aussi de charger les traductions avec :</p>
+					<ul>
+						<li>Des fichiers JSON</li>
+						<li>Une requête HTTP</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Utilisation</h3>
+					<p>Dans la vue il suffit d’utiliser le filtre <b>translate</b> pour exécuter la transaction.</p>
+					<pre>
+							<code  data-trim class="html">
+<span ng-bind="'app.title' | translate"></span>
+						</code>
+					</pre>
+					<p>Ce filtre peut prendre des variables en paramètres.</p>
+					<p>Pour répondre au même besoin, le module fournit :</p>
+					<ul>
+						<li>Des directives</li>
+						<li>Des services ($translate)</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Utilisation</h3>
+					<p>Changer de langage simplement avec le service $translate :</p>
+					<pre>
+						<code  data-trim class="javascript">
+$translate.use('fr');
+						</code>
+					</pre>
+					<p>Quelques modules complémentaires :</p>
+					<ul>
+						<li>angular-translate-loader-static-files</li>
+						<li>angular-translate-storage-cookie</li>
+					</ul><br><br>
+					<p>angular-translate supporte la négociation de langage en fonction de la langue du navigateur web.</p>
 				</section>
 			</section>
 
