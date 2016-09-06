@@ -205,7 +205,7 @@ var app = angular.module('app', ['ngCookies', 'ngResource']);
 					<h3>Le scope</h3>
 					<p>Le scope représente le modèle de l’application et le contexte d’exécution pour les expressions.</p>
 					<p>Tous les scopes sont organisés de manière hiérarchique et héritent du scope applicatif rootScope.</p>
-					<p>Le scope sert de « glue » entre la view et le controller.</p>
+					<p>Le scope sert de «glue» entre la view et le controller.</p>
 					<img src="assets/images/scope.png" width="550">
 
 				</section>
@@ -316,6 +316,91 @@ app.controller('Test', function($scope){
 					<p>Une directive est un comportement que l’on va associé à un élément du DOM.</p>
 					<p>Elle peut être utilisée en tant qu’élément à par entière, attribut, nom de classe, commentaire.</p><br><br>
 					<p>Le compilateur HTML d’Angular va associé un comportement aux directives présentes dans le template</p>
+				</section>
+				<section>
+					<h3>Déclaration de directive</h3>
+					<pre>
+						<code data-trim data-noescape class="javascript">
+app.controller('Test', function($scope){
+	$scope.<mark>name</mark> = 'my name';
+});
+
+app.directive('myName', function(){
+	return {
+		retrict: A, // A, E, M, C
+		template: 'Bonjour {{<mark>name</mark>}}'
+	}
+});
+						</code>
+					</pre>
+					<p>Le template peut être spécifié : 
+					<ul>
+						<li>En chaîne de caractères (template) </li>
+						<li>Avec un fichier (templateUrl)</li>
+					</ul></p>
+				</section>
+				<section>
+					<h3>Usage de la directive</h3>
+					<p>La directive «myName» déclarée précédemment va s'utiliser de la manière suivante :</p>
+					<pre>
+						<code data-trim contenteditable class="html">
+<div ng-controller="Test">
+	<my-name></my-name>
+</div>
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h3>Manipulation du DOM</h3>
+					<p>Cette fonction permet la manipulation de l'élément DOM associé à la directive et de ses enfants.</p>
+					<p>Elle se déclare dans la directive :</p>
+					<pre>
+						<code data-trim data-noescape class="javascript">
+app.directive('myName', function(){
+	return {
+		retrict: A, // A, E, M, C
+		template: 'Bonjour {{name<}}'
+		link: function(scope, element, attrs) {
+			element.css({backgroundColor: 'lightgrey'});
+		}
+	}
+});
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h3>Les paramètres de directives</h3>
+					<p>Des paramètres peuvent être passés aux directives avec la déclaration d'un scope :</p>
+					<pre>
+						<code data-trim data-noescape class="javascript">
+scope : {
+	color: '=color'
+}
+						</code>
+					</pre>	
+					<pre>
+						<code data-trim class="html">
+<my-name color="lightgrey"></my-name>
+						</code>
+					</pre>	
+
+				</section>
+				<section>
+					<h3>Les directives de base</h3>
+					<p>Le Framework fournie un ensemble de directives :</p>
+					<ul>
+						<li>ng-app</li>
+						<li>ng-bind ({{ }})</li>
+						<li>ng-controller</li>
+						<li>ng-model</li>
+						<li>ng-repeat</li>
+						<li>ng-if</li>
+						<li>ng-show</li>
+						<li>ng-hide</li>
+						<li>ng-click</li>
+						<li>ng-class</li>
+						<li>...</li>
+					</ul>
 				</section>
 			</section>
 		</div>
