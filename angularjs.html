@@ -126,6 +126,25 @@ var app = angular.module('app', ['test']);
 					</pre>
 				</section>
 				<section>
+					<h3>Déclarer un module</h3>
+					<p>Un module peut avoir :</p>
+					<ul>
+						<li>Un bloc de configuration</li>
+						<li>Un bloc de lancement (run)</li>
+					</ul>
+					<pre>
+						<code contenteditable data-trim class="javascript">
+angular.module('app', []).
+	config(function(...) { // provider
+	 
+	}).
+	run(function(...) { // service
+	  
+	});
+						</code>
+					</pre>
+				</section>
+				<section>
 					<h3>Les modules AngularJS</h3>
 					<p>La librairie AngularJS se compose : 
 						<ul>
@@ -519,6 +538,96 @@ app.module('app').config(function(testProvider){
 				<section>
 					<h3>En résumé</h3>
 					<img src="assets/images/service.png" width="550">
+				</section>
+				<section>
+					<h3>Le service $http</h3>
+					<p>$http nous permet de communiquer avec un serveur.</p>
+					<p>Il permet l’abstraction du mécanisme AJAX en native et notamment XMLHttpRequest</p>
+					<p>Ce service utilise l’API Promise ($q) et propose l’ensemble des méthodes HTTP :</p>
+					<ul>
+						<li>GET</li>
+						<li>POST</li>
+						<li>PUT</li>
+						<li>DELETE</li>
+					</ul>
+					<pre>
+						<code  data-trim data-noescape class="javascript">
+$http.post('/persons', {name: 'David'})
+	.success(...)
+	.error(...)
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h3>Le service $http</h3>
+					<p>Angular dispose d’un système de cache interne et il est possible de cacher les requêtes GET</p>
+					<pre>
+						<code  data-trim data-noescape class="javascript">
+$http.get('/persons', {cache: 'true'})
+						</code>
+					</pre>
+					<p>Il est même possible d’avoir complètement la main sur le cache utilisé en passant une instance d’un cache grâce à $cacheFactory, un autre service chargé de la gestion des caches.</p>
+					<pre>
+						<code  data-trim data-noescape class="javascript">
+var cache = $cacheFactory('cacheId');
+cache.put(key, value);
+var value = cache.get(key);
+...
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h3>Le service $resource</h3>
+					<p>Il s'agit d'un niveau d’abstraction supérieur à $http.</p>
+					<p>Il permet une interaction de façon transparente avec une ressource REST.</p>
+					<p>Il nécessite le module angular-resource</p>
+					<pre>
+						<code  data-trim data-noescape class="javascript">
+var persons = $resource('/persons/:id', {id: '@id'});
+
+persons.save({name: 'David'});
+persons.update({name: 'David', id: 1234});
+persons.delete({id: 1234});
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h3>Le service $location</h3>
+					<p>Il permet la manipulation de l'URL.</p>
+					<p>Il s'agit en fait d'un wrapper amélioré de window.location.</p>
+					<pre>
+						<code  data-trim data-noescape class="javascript">
+var path = $location.path();
+$location.path('/page/2');
+						</code>
+					</pre>
+					<p>Toutes les valeurs passées à $location sont encodées correctement par Angular.</p>
+				</section>
+				<section>
+					<h3>Le service $locale</h3>
+					<p>Il permet la gestion de l’internationalisation.</p>
+					<p>Service très rudimentaire :</p>
+					<ul>
+						<li>Avec bootstrap ce service permet l’internationalisation des datepicker par exemple.</li>
+						<li>https://github.com/angular/angular.js/tree/master/src/ngLocale</li>
+					</ul><br><br>
+					<p>Pour plus de possibilité, il faut utiliser angular-translate.</p>
+				</section>
+				<section>
+					<h3>Le service $cookieStore</h3>
+					<p>Il permet la gestion simplifiée des cookies</p>
+					<pre>
+						<code  data-trim data-noescape class="javascript">
+// Lecture
+var us = $cookieStore.get('user');
+
+// Ecriture
+$cookieStore.put('user', us);
+
+// Suppression
+$cookieStore.remove('user');
+						</code>
+					</pre>
 				</section>
 			</section>
 		</div>
