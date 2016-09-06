@@ -630,6 +630,87 @@ $cookieStore.remove('user');
 					</pre>
 				</section>
 			</section>
+			<section>
+				<section>
+					<h2>Les filtres</h2>
+					<p>Principe très utile du framework qui permet la manipulation des données à l’affichage.</p>
+					<p>Dans beaucoup d’application web, il y a des besoins récurrents :</p>
+					<ul>
+						<li>Transformer des valeurs à l’affichage</li>
+						<li>Ordonner des collections</li>
+						<li>...</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Syntaxe</h3>
+					<p>Les filtres AngularJS sont applicables en JavaScript et en HTML.</p>
+					<p>La syntaxe se rapproche du style Unix, où l’on peut chaîner les commandes à l’aide du pipe.</p>
+					<pre class="left">
+						<code  data-trim data-noescape class="html">
+// HTML
+Bonjour {{ name | lowercase }}
+						</code>
+					</pre>
+					<pre class="right">
+						<code  data-trim data-noescape class="javascript">
+// JavaScript
+var name = 'DAVID';
+var lowercaseName = $filter('lowercase')(name);
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h3>Les filtres de base</h3>
+					<p>Angular propose par défaut certains filtres communs :</p>
+					<pre>
+						<code  data-trim class="html">
+// HTML
+{{ 85,77 | number:1 }}
+{{ 85,77 | currency:'$' }}
+{{ today | date:'yyyy-MM-dd' }}
+{{ 'David' | uppercase }}
+{{ 'David' | lowercase }}
+{{ [1, 2, 3] | limit:2 }}
+{{ persons | orderBy:'name' }}
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h3>Le filtre générique</h3>
+					<p>Syntaxe <b>filter</b></p>
+					<p>Il va retenir tout élément d’un tableau dont une propriété correspond au paramètre du filtre.</p>
+					<pre>
+						<code  data-trim class="html">					
+<table>
+	<tbody>
+		<tr ng-repeat="person in persons | filter:search">
+			<td>{{person.name}}</td>
+		</tr>
+	</tbody>
+</table>
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h3>Déclaration de filtres</h3>
+					<p>Au même titre que les contrôleur, services et directives, ils peuvent être référencés dans le framework.</p>
+					<pre>
+						<code  data-trim data-noescape class="javascript">
+app.filtre('myFilter', function() {
+	return function() {
+		...
+	};
+});
+						</code>
+					</pre>
+				</section>
+			</section>
+			<section>
+				<h2>Les components</h2>
+			</section>
+			<section>
+				<h2>Le routing</h2>
+			</section>
 		</div>
 		<footer>
             <img src="assets/images/modis.png"/><br> Présentation JavaScript - David Talabard - Septembre 2016.
