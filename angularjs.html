@@ -403,6 +403,124 @@ scope : {
 					</ul>
 				</section>
 			</section>
+			<section>
+				<section>
+					<h2>Les services</h2>
+					<p>Les services sont des objets JavaScript qui sont câblés ensembles via l'injection de dépendances.</p>
+					<p>Ils sont : 
+						<ul>
+							<li>Des singletons</li>
+							<li>Lazy instanciated : charger uniquement quand un composant dépend du service</li>
+							<li>Très utiles pour organiser et partager le code</li>
+						</ul>
+					</p>
+				</section>
+				<section>
+					<h3>Les services de base</h3>
+					<p>Angular propose en natif en ensemble de services qui se distinguent facilement avec le préfixe $.</p>
+					<ul>
+						<li>$http</li>
+						<li>$resource</li>
+						<li>$timeout</li>
+						<li>$filter</li>
+						<li>$log</li>
+						<li>$cookies</li>
+						<li>$location</li>
+						<li>$q</li>
+						<li>...</li>
+					</ul>
+					<p>Certains services nécessitent le chargement de modules angular supplémentaires</p>
+				</section>
+				<section>
+					<h3>Déclaration de service</h3>
+					<p>Pour déclarer nos services applicatifs dans le Framework, 3 principaux outils sont fournis par Angular :</p>
+					<br><br>
+					<div>service ------> factory ------> provider</div>
+				</section>
+				<section>
+					<h3>Service</h3>
+					<p>Le service est l'usage le plus simple qui a les caractéristiques suivantes : </p>
+					<ul>
+						<li>Non configurable</li>
+						<li>Usage de this</li>
+						<li>Retourne un objet (instance)</li>
+						<li>Simplification de Factory</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Factory</h3>
+					<ul>
+						<li>Non configurable</li>
+						<li>Méthodes/variables privées</li>
+						<li>Retourne une fonction (singleton)</li>
+						<li>Simplification de provider</li>
+
+					</ul>
+				</section>
+				<section>
+					<h3>Provider</h3>
+					<ul>
+						<li>Services configurables</li>
+						<li>Seuls services qui peuvent être passés au bloc config()</li>
+						<li>Possède une méthode $get</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Exemple de code</h3>
+					<pre class="left">
+						<code  data-trim data-noescape class="javascript">
+// Service
+app.service('test', function(){
+	this.name = 'David';
+	this.print = function() {
+		return name;
+	}
+});
+
+//Factory
+app.factory('test', function(){
+	var name = 'David';
+	return {
+		print: function() {
+			return name;
+		}
+	};
+});
+
+						</code>
+					</pre>	
+					<pre class="right">
+						<code  data-trim data-noescape class="javascript">
+// Provider
+app.provider('test', function(){
+	this.name = 'Default';
+
+	this.$get = function() {
+		var name = this.name;
+		return {
+			print: function() {
+				return name;
+			}
+		}
+	};
+
+	this.setName = function(name) {
+		this.name = name;
+	}
+});
+
+//Configuration
+app.module('app').config(function(testProvider){
+	testProvider.setName('David');
+});
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h3>En résumé</h3>
+					<img src="assets/images/service.png" width="550">
+				</section>
+			</section>
 		</div>
 		<footer>
             <img src="assets/images/modis.png"/><br> Présentation JavaScript - David Talabard - Septembre 2016.
