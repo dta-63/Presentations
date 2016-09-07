@@ -732,6 +732,11 @@ app.filter('myFilter', function() {
 					<p>Tous les états ne nécessitent pas forcément une url (ex: modal)</p>
 					<p>Il permet donc de concevoir les états dont l’application aura besoin.</p><br><br>
 					<p>Les states peuvent être configurés en « across module » </p>
+					<pre>
+						<code contenteditable data-trim class="bash">
+> bower install angular-ui-router
+						</code>
+					</pre>
 				</section>
 				<section>
 					<h3>Les services d'ui-router</h3>
@@ -893,6 +898,52 @@ form.$invalid
 			<section>
 				<section>
 					<h2>Nouveauté Angular 1.5</h2>
+					<p>Angular 1.5 est sortie en avril 2016.</p>
+					<p>Cette version offre des nouveaux concepts qui se rapproche d'Angular 2.</p>
+					<br><br>
+					<p>La principale nouveauté : Les components.</p>
+				</section>
+				<section>
+					<h3>Les components</h3>
+
+					<p>Tendance actuelle : organiser l'application en hiérarchie de composants autonome. (scopes isolés)</p><br><br>
+					<p>Les components ont une syntaxe quasiment similaires aux directives.</p>
+					<p>Un composant peut en utiliser un autre. (require)</p>
+				</section>
+				<section>
+					<h3>Exemple</h3>
+					<pre>
+						<code contenteditable data-trim class="javascript">
+angular.module('app').component('hello', {
+	bindings: {
+		name: '@'
+	},
+	controller: function(){
+		this.logName = function(){
+			console.log(this.name);
+		}
+	},
+	template: '<div ng-click="logName()">Hello {{$ctrl.name}}</div>'
+});
+						</code>
+					</pre>
+					<pre>
+						<code contenteditable data-trim class="html">
+<hello name="David"></hello>
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h3>Component router</h3>
+					<p>Avec $routerRootComponent, il est indispensable de déclarer un component container.</p>
+					<p>Ensuite pour chaque component il est possible d'associer une url au niveau du module:</p>
+					<pre>
+						<code contenteditable data-trim class="javascript">
+$routeConfig : [
+	{path: '/hello', component: 'hello'}
+];
+						</code>
+					</pre>
 				</section>
 			</section>
 
