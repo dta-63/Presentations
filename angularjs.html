@@ -947,7 +947,144 @@ $routeConfig : [
 				</section>
 			</section>
 
-			
+			<section>
+				<section>
+					<h2>Test</h2>
+					<p>Rappel : (ECMAScript 5)</p>
+					<ul>
+						<li>Le code JavaScript n’est pas compilé</li>
+						<li>Il n’y a aucune vérification de type</li>
+						<li>Seule l’exécution permet la détection d’erreur</li>
+					</ul>
+					<p>Il est donc extrêmement utile de pouvoir, au moindre changement, vérifier que le code fonctionne.</p>
+					<p>Nous distinguerons deux niveaux de tests automatisés:</p>
+					<ul>
+						<li>Tests unitaires</li>
+						<li>Tests end to end</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Tests unitaires</h3>
+					<p>Les tests unitaires consistent à vérifier qu’une unité de code (un contrôleur, un filtre, un service, une directive/composant), en isolation des autres, fonctionne correctement.</p>
+					<p>Les tests unitaires ne garantissent pas forcément le bon fonctionnement de l’application, mais ils ont de gros avantages :</p>
+					<ul>
+						<li>Ils sont très rapides</li>
+						<li>Ils permettent de facilement couvrir la totalité du code</li>
+					</ul><br><br>
+					<p>Ces tests reposent sur le principes de mocks.</p>
+				</section>
+				<section>
+					<h3>Tests unitaires</h3>
+					<p>Deux outils sont indispensables aux tests uniatires :</p>
+					<ul>
+						<li>Karma</li>
+						<li>Jasmine</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Jasmine</h3>
+					<p>Jasmine est le framework de test.</p>
+					<p>Cette librairie fournit des méthodes pour organiser et réaliser les tests unitaires.</p>
+					<ul>
+						<li>describe</li>
+						<li>it</li>
+						<li>...</li>
+					</ul>
+					<pre>
+						<code contenteditable data-trim class="bash">
+// Installation
+> npm install jasmine -g
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h3>Karma</h3>
+					<p>Karma est une librairie développée en NodeJS.</p>
+					<p>Elle permet de déclencher la suite de tests en lancent différents navigateurs. (phantomjs)</p>
+
+					<pre>
+						<code contenteditable data-trim class="bash">
+// Installation
+> npm install karma --save-dev
+> npm install karma-cli -g
+
+//Initialisation
+> karma init
+> karma start
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h3>Exemple</h3>
+					<pre>
+						<code contenteditable data-trim class="javascript">
+describe('Test scope name', function(){
+	it('sets the name variable to David', function(){
+		var $scope = {};
+		var controller = $controller('TestCtrl', {$scope: $scope});
+		expect($scope.name).toEqual('David');
+	});
+});
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h3>Tests end to end</h3>
+					<p>Besoin : Tester l’application de bout en bout comme un humain pourrait le faire.</p>
+					<p>Au contraire des tests unitaires :</p>
+					<ul>
+						<li>Ils sont plus lents à éxecuter</li>
+						<li>Ils permettent plus difficilement de tester les cas aux limites</li>
+					</ul>
+					<p>Pour les tests d’IHM, deux outils sont indispensables :</p>
+					<ul>
+						<li>Jasmine : Le framework de tests est le même! </li>
+						<li>Protractor</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Protractor</h3>
+					<p>Protractor se base sur un serveur selenium installé via NodeJS.</p>
+					<p>Il permet de lancer et piloter différents navigateurs.</p>
+					<pre>
+						<code contenteditable data-trim class="bash">
+// Installation
+> npm install protractor -g
+> webdriver-manager update
+
+						</code>
+					</pre>
+					<p>Le serveur selenium doit être lancé avant éxecution des tests :</p>
+					<pre>
+						<code contenteditable data-trim class="bash">
+> webdriver-manager start
+
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h3>Exemple</h3>
+					<p>Intéragir avec le navigateur grâce à l'objet browser :</p>
+					<pre>
+						<code contenteditable data-trim class="javascript">
+describe('Main page tests', function(){
+	it('Access to main page', function(){
+		browser.get("http://localhost:8080");
+		expect(browser.getCurrentUrl()).toContain('/test');
+		expect(browser.getTitle()).toEqual('AngularJS');
+	});
+});
+						</code>
+					</pre>
+					<p>Cibler des éléments:</p>
+					<pre>
+						<code contenteditable data-trim class="javascript">
+element(by.model('firstName')).sendKeys('David');
+element(by.css('#test')).click();
+						</code>
+					</pre>
+				</section>
+			</section>
 		</div>
 		<footer>
             <img src="assets/images/modis.png"/><br> Présentation JavaScript - David Talabard - Septembre 2016.
