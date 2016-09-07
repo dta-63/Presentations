@@ -2,9 +2,13 @@
 
 Quelques présentations sur JavaScript, NodeJS, Grunt et AngularJS.
 
-Avant de lancer les fichiers HTML, éxécuter la commande suivante :
+Prérequis
+Installer NodeJS + GIT 
 
+Installation
 ```
 npm install bower -g
+npm install 
 bower install
+npm start
 ```
