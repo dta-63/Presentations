@@ -62,7 +62,7 @@
 				<section>
 					<h2>Pattern MVVM</h2>
 					<p>AngularJS se base sur le pattern Model View ViewModel (MVVM).</p>
-					<p>Il s'agit pour vulgariser d'un pattern MVC accentué par un data binding évennementiel.</p>
+					<p>Il s'agit pour vulgariser d'un pattern MVC accentué par un data binding évenementiel.</p>
 					<img src="assets/images/MVVM1.png">
 					<img src="assets/images/MVVM2.png">
 				</section>
@@ -291,7 +291,7 @@ app.controller('Test', function(<mark>$scope</mark>){
 				<section>
 					<h3>Injection par tableaux</h3>
 					<pre>
-						<code data-trim data-noescape class="javascript">
+						<code contenteditable data-trim data-noescape class="javascript">
 // Déclaration avec injection de dépendances
 app.controller('Test', ['$scope', 'service', function(a, b){
 	a.name = 'my name';
@@ -302,7 +302,7 @@ app.controller('Test', ['$scope', 'service', function(a, b){
 				<section>
 					<h3>Injection avec $inject</h3>
 					<pre>
-						<code data-trim data-noescape class="javascript">
+						<code contenteditable data-trim data-noescape class="javascript">
 //Constructeur du contrôleur
 var Test = function(a, b) {
 	a.name = 'my name';
@@ -320,7 +320,7 @@ app.controller('Test', Test);
 					<h3>Injection implicite</h3>
 					<p>Attention à la minification (ng-annotate).</p>
 					<pre>
-						<code data-trim data-noescape class="javascript">
+						<code contenteditable data-trim data-noescape class="javascript">
 app.controller('Test', function($scope){
 	$scope.name = 'my name';
 });
@@ -339,14 +339,14 @@ app.controller('Test', function($scope){
 				<section>
 					<h3>Déclaration de directive</h3>
 					<pre>
-						<code data-trim data-noescape class="javascript">
+						<code contenteditable data-trim data-noescape class="javascript">
 app.controller('Test', function($scope){
 	$scope.<mark>name</mark> = 'my name';
 });
 
 app.directive('myName', function(){
 	return {
-		retrict: A, // A, E, M, C
+		restrict: 'AE', // A, E, M, C
 		template: 'Bonjour {{<mark>name</mark>}}'
 	}
 });
@@ -362,7 +362,7 @@ app.directive('myName', function(){
 					<h3>Usage de la directive</h3>
 					<p>La directive «myName» déclarée précédemment va s'utiliser de la manière suivante :</p>
 					<pre>
-						<code data-trim contenteditable class="html">
+						<code contenteditable data-trim contenteditable class="html">
 <div ng-controller="Test">
 	<my-name></my-name>
 </div>
@@ -374,11 +374,11 @@ app.directive('myName', function(){
 					<p>Cette fonction permet la manipulation de l'élément DOM associé à la directive et de ses enfants.</p>
 					<p>Elle se déclare dans la directive :</p>
 					<pre>
-						<code data-trim data-noescape class="javascript">
+						<code contenteditable data-trim data-noescape class="javascript">
 app.directive('myName', function(){
 	return {
-		retrict: A, // A, E, M, C
-		template: 'Bonjour {{name<}}'
+		restrict: 'A', // A, E, M, C
+		template: 'Bonjour {{name}}'
 		link: function(scope, element, attrs) {
 			element.css({backgroundColor: 'lightgrey'});
 		}
@@ -391,14 +391,14 @@ app.directive('myName', function(){
 					<h3>Les paramètres de directives</h3>
 					<p>Des paramètres peuvent être passés aux directives avec la déclaration d'un scope :</p>
 					<pre>
-						<code data-trim data-noescape class="javascript">
+						<code contenteditable data-trim data-noescape class="javascript">
 scope : {
-	color: '=color'
+	color: '@color'
 }
 						</code>
 					</pre>	
 					<pre>
-						<code data-trim class="html">
+						<code contenteditable data-trim class="html">
 <my-name color="lightgrey"></my-name>
 						</code>
 					</pre>	
@@ -487,7 +487,7 @@ scope : {
 				<section>
 					<h3>Exemple de code</h3>
 					<pre class="left">
-						<code  data-trim data-noescape class="javascript">
+						<code contenteditable  data-trim data-noescape class="javascript">
 // Service
 app.service('test', function(){
 	this.name = 'David';
@@ -509,7 +509,7 @@ app.factory('test', function(){
 						</code>
 					</pre>	
 					<pre class="right">
-						<code  data-trim data-noescape class="javascript">
+						<code contenteditable data-trim data-noescape class="javascript">
 // Provider
 app.provider('test', function(){
 	this.name = 'Default';
@@ -551,7 +551,7 @@ app.module('app').config(function(testProvider){
 						<li>DELETE</li>
 					</ul>
 					<pre>
-						<code  data-trim data-noescape class="javascript">
+						<code contenteditable  data-trim data-noescape class="javascript">
 $http.post('/persons', {name: 'David'})
 	.success(...)
 	.error(...)
@@ -562,13 +562,13 @@ $http.post('/persons', {name: 'David'})
 					<h3>Le service $http</h3>
 					<p>Angular dispose d’un système de cache interne et il est possible de cacher les requêtes GET</p>
 					<pre>
-						<code  data-trim data-noescape class="javascript">
+						<code contenteditable data-trim data-noescape class="javascript">
 $http.get('/persons', {cache: 'true'})
 						</code>
 					</pre>
 					<p>Il est même possible d’avoir complètement la main sur le cache utilisé en passant une instance d’un cache grâce à $cacheFactory, un autre service chargé de la gestion des caches.</p>
 					<pre>
-						<code  data-trim data-noescape class="javascript">
+						<code contenteditable data-trim data-noescape class="javascript">
 var cache = $cacheFactory('cacheId');
 cache.put(key, value);
 var value = cache.get(key);
@@ -582,7 +582,7 @@ var value = cache.get(key);
 					<p>Il permet une interaction de façon transparente avec une ressource REST.</p>
 					<p>Il nécessite le module angular-resource</p>
 					<pre>
-						<code  data-trim data-noescape class="javascript">
+						<code contenteditable data-trim data-noescape class="javascript">
 var persons = $resource('/persons/:id', {id: '@id'});
 
 persons.save({name: 'David'});
@@ -596,7 +596,7 @@ persons.delete({id: 1234});
 					<p>Il permet la manipulation de l'URL.</p>
 					<p>Il s'agit en fait d'un wrapper amélioré de window.location.</p>
 					<pre>
-						<code  data-trim data-noescape class="javascript">
+						<code contenteditable data-trim data-noescape class="javascript">
 var path = $location.path();
 $location.path('/page/2');
 						</code>
@@ -617,7 +617,7 @@ $location.path('/page/2');
 					<h3>Le service $cookieStore</h3>
 					<p>Il permet la gestion simplifiée des cookies</p>
 					<pre>
-						<code  data-trim data-noescape class="javascript">
+						<code contenteditable data-trim data-noescape class="javascript">
 // Lecture
 var us = $cookieStore.get('user');
 
@@ -646,13 +646,13 @@ $cookieStore.remove('user');
 					<p>Les filtres AngularJS sont applicables en JavaScript et en HTML.</p>
 					<p>La syntaxe se rapproche du style Unix, où l’on peut chaîner les commandes à l’aide du pipe.</p>
 					<pre class="left">
-						<code  data-trim data-noescape class="html">
+						<code contenteditable data-trim data-noescape class="html">
 // HTML
 Bonjour {{ name | lowercase }}
 						</code>
 					</pre>
 					<pre class="right">
-						<code  data-trim data-noescape class="javascript">
+						<code contenteditable data-trim data-noescape class="javascript">
 // JavaScript
 var name = 'DAVID';
 var lowercaseName = $filter('lowercase')(name);
@@ -663,7 +663,7 @@ var lowercaseName = $filter('lowercase')(name);
 					<h3>Les filtres de base</h3>
 					<p>Angular propose par défaut certains filtres communs :</p>
 					<pre>
-						<code  data-trim class="html">
+						<code contenteditable data-trim class="html">
 // HTML
 {{ 85,77 | number:1 }}
 {{ 85,77 | currency:'$' }}
@@ -680,7 +680,7 @@ var lowercaseName = $filter('lowercase')(name);
 					<p>Syntaxe <b>filter</b></p>
 					<p>Il va retenir tout élément d’un tableau dont une propriété correspond au paramètre du filtre.</p>
 					<pre>
-						<code  data-trim class="html">					
+						<code contenteditable data-trim class="html">					
 <table>
 	<tbody>
 		<tr ng-repeat="person in persons | filter:search">
@@ -695,7 +695,7 @@ var lowercaseName = $filter('lowercase')(name);
 					<h3>Déclaration de filtres</h3>
 					<p>Au même titre que les contrôleur, services et directives, ils peuvent être référencés dans le framework.</p>
 					<pre>
-						<code  data-trim data-noescape class="javascript">
+						<code contenteditable data-trim data-noescape class="javascript">
 app.filter('myFilter', function() {
 	return function() {
 		...
@@ -744,7 +744,7 @@ app.filter('myFilter', function() {
 				<section>
 					<h3>Déclaration de state</h3>
 					<pre>
-						<code  data-trim data-noescape class="javascript">
+						<code contenteditable data-trim data-noescape class="javascript">
 $stateProvider.state('root', {
 	views : {
 		'header': {
@@ -765,7 +765,7 @@ stateProvider.state('root.test', {
 						</code>
 					</pre>
 					<pre>
-						<code  data-trim class="html">
+						<code contenteditable data-trim class="html">
 <ui-view name="header"></ui-view>
 <ui-view name="main"></ui-view>
 						</code>
@@ -778,13 +778,13 @@ stateProvider.state('root.test', {
 					<ul>
 						<li>En JavaScript</li>
 						<pre>
-							<code  data-trim class="javascript">
+							<code contenteditable data-trim class="javascript">
 	$state.go('root.test');
 							</code>
 						</pre>
 						<li>Dans le template</li>
 						<pre>
-							<code  data-trim class="html">
+							<code contenteditable data-trim class="html">
 	<a ui-sref="root.test">Test</a>
 							</code>
 						</pre>
@@ -798,7 +798,7 @@ stateProvider.state('root.test', {
 					<p>Angular-translate est la référence en matière d’internationalisation.</p>
 					<p>Après installation du module, il suffit juste de configurer le provider $translateProvider au niveau du module de l’application</p>
 					<pre>
-							<code  data-trim class="javascript">
+							<code contenteditable data-trim class="javascript">
 var translations = {
 	'app.title': 'AngularJS'
 };
@@ -815,7 +815,7 @@ $translateProvider.translations('en', translations);
 					<h3>Utilisation</h3>
 					<p>Dans la vue il suffit d’utiliser le filtre <b>translate</b> pour exécuter la transaction.</p>
 					<pre>
-							<code  data-trim class="html">
+							<code contenteditable data-trim class="html">
 <span ng-bind="'app.title' | translate"></span>
 						</code>
 					</pre>
@@ -830,7 +830,7 @@ $translateProvider.translations('en', translations);
 					<h3>Utilisation</h3>
 					<p>Changer de langage simplement avec le service $translate :</p>
 					<pre>
-						<code  data-trim class="javascript">
+						<code contenteditable data-trim class="javascript">
 $translate.use('fr');
 						</code>
 					</pre>
@@ -846,6 +846,47 @@ $translate.use('fr');
 			<section>
 				<section>
 					<h2>Validation de formulaire</h2>
+					<p>Angular fournit des propriétés qui permettent de connaître le niveau d’interaction avec le formulaire ou les champs.</p>
+					<ul>
+						<li>$valid</li>
+						<li>$invalid</li>
+						<li>$dirty</li>
+						<li>$pristine</li>
+						<li>$error</li>
+					</ul>
+					<pre>
+						<code contenteditable data-trim class="javascript">
+//Pour chaque élément HTML, ce module se base sur l’attribut name
+form.firstName.$invalid
+form.$invalid
+						</code>
+					</pre>
+					<p>Remarque: la validation HTML5 n'est pas utile dans ce cas. (novalidate)</p>
+				</section>
+				<section>
+					<h3>Gestion des messages d'erreur</h3>
+					<p>Le module angular-messages (ngMessages) Permet le contrôle des champs et l’affichage d’erreurs lors de la saisie d’un formulaire.</p>
+					<p>Les directives suivantes permettent de restreindre la saisie dans des champs: </p>
+					<ul>
+						<li>ng-required (required)</li>
+						<li>ng-minlength</li>
+						<li>ng-maxlength</li>
+						<li>ng-pattern</li>
+					</ul><br><br>
+					<p>Les directives ng-messages et ng-message permettent de configurer le libellé à afficher.</p>
+				</section>
+				<section>
+					<h3>Exemple d'utilisation</h3>
+					<pre>
+						<code contenteditable data-trim class="html">
+<form name="form">
+	<input type="text" name="firstName" ng-required/>
+	<div ng-messages="form.firstName.$error">
+		<span ng-message="required">Le prénom est obligatoire.</span>
+	</div>
+</form>
+						</code>
+					</pre>
 				</section>
 			</section>
 
