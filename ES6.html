@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">	
+<head>
+	<meta charset="utf-8">
+	<title>Présentation JavaScript</title>
+	<link rel="stylesheet" href="bower_components/reveal-js/css/reveal.min.css">
+	<link rel="stylesheet" href="bower_components/reveal-js/css/theme/moon.css" id="theme">	
+	<link rel="stylesheet" href="bower_components/reveal-js/lib/css/zenburn.css" >	
+	<link rel="stylesheet" href="assets/css/index.css">	
+</head>
+
+<body>
+	<!-- Wrap the entire slide show in a div using the "reveal" class. -->
+	<div class="reveal">
+		<!-- Wrap all slides in a single "slides" class -->
+		<div class="slides">
+                    <!-- ALL SLIDES GO HERE -->
+                    <!-- Each section element contains an individual slide -->
+                    <section>
+                        <h1>ES6</h1>
+                        <div>Normes ECMAScript 2015</div>		
+                    </section>
+                    <section>
+                        
+                        <section>
+                            <h2>Améliorations apportées par ES6</h2>
+                             <p>ES6 porte les dernier standards JavaScript et adopte des nouvelles syntaxes afin d'améliorer la structure et la lisibilité des projets.</p>
+                            <ul>
+                                <li>Les variables locales (let)</li>
+                                <li>Fonctions fléchées</li>
+                                <li>Les classes (class, extend, super, static)</li>
+                                <li>Les modules</li>
+                                <li>Les arguments peuvent prendre une valeur par défaut</li>
+                                <li>Les chaines de caractères supportent l’interpolation</li>
+                                <li>...</li>
+                            </ul>
+                        </section>
+                         <section>
+                            <h3>Les classes</h3>
+                            <p>La syntaxe des classes en JavaScript se rapproche beaucoup des langages de POO classiques.</p>
+                            <pre>
+                                <code  contenteditable data-trim class="javascript">
+class Test {
+    constructor(a, b) {
+        this.a = a;
+        this.b = b;
+    }
+    
+    sum() {
+        return this.a + this.b;
+    }
+};
+
+// Usage
+let test = new Test(2, 10);
+console.log(test.sum());
+                                </code>
+                            </pre>
+                        </section>
+                        <section>
+                            <h3>Les modules</h3>
+                            <p>Le concept de module améliore considérablement la réutilisabilité du code.</p>
+                            <pre>
+                                <code  contenteditable data-trim class="javascript">
+module Test {
+    export function sum(a = 2, b = 10) {
+        return x + y;
+    }
+}
+// Usage
+import {sum} from Test;
+console.log(sum());
+                                </code>
+                            </pre>
+                        </section>
+                        
+                    </section>
+                    <section>
+                            <h2>Les transpileurs ES6</h2>
+                            <p>ES6 prend beaucoup de temps a être standardisé et les navigateurs n'implémentent que des versions non finalisées.</p>
+                            <p>Pour assurer la compatibilité, une étape de compilation est indispensable (ES6 --> ES5).</p>
+                            <ul>
+                                <li>Traceur</li>
+                                <li>BabelJS (utilisé par Netflix, Yahoo, spotify...)</li>
+                            </ul>
+                    </section>
+                    <section>
+                            <h2>Bundles</h2>
+                            <ul>
+                                <li>SystemJS</li>
+                                <li>Webpack</li>
+                            </ul>
+                            A compléter...
+                    </section>
+                    <section>
+                            <h2>Exemple de code ES6</h2><br>
+                            <h3>Angular 1.5.8  + Babel+ SystemJS</h3>
+                    </section>
+                 </section>
+		</div>
+		<footer>
+			<img src="assets/images/modis.png"/><br> Présentation ES6 - David Talabard - Novembre 2016.
+		</footer>
+	</div>
+
+	<script src="bower_components/reveal-js/lib/js/classList.js"></script>
+	<script src="bower_components/reveal-js/lib/js/head.min.js"></script>
+	<script src="bower_components/reveal-js/js/reveal.min.js"></script>
+
+	<script>
+		// Required, even if empty.
+		Reveal.initialize({
+                    history: true,
+                    width: 1100,
+                    transition: 'fade', // none/fade/slide/convex/concave/zoom
+		    dependencies: [
+
+		        // Syntax highlight for <code> elements
+		        { src: 'bower_components/reveal-js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+
+		    ]
+		});
+		// Shows the slide number using default formatting
+		Reveal.configure({ slideNumber: true });
+
+	</script>
+</body>
+</html>
