@@ -2,7 +2,7 @@
 <html lang="en">	
 <head>
 	<meta charset="utf-8">
-	<title>Présentation JavaScript</title>
+	<title>Présentation ES6</title>
 	<link rel="stylesheet" href="bower_components/reveal-js/css/reveal.min.css">
 	<link rel="stylesheet" href="bower_components/reveal-js/css/theme/moon.css" id="theme">	
 	<link rel="stylesheet" href="bower_components/reveal-js/lib/css/zenburn.css" >	
@@ -61,7 +61,7 @@ console.log(test.sum());
                             <h3>Les modules</h3>
                             <p>Le concept de module améliore considérablement la réutilisabilité du code.</p>
                             <pre>
-                                <code  contenteditable data-trim class="javascript">
+                                <code contenteditable data-trim class="javascript">
 module Test {
     export function sum(a = 2, b = 10) {
         return x + y;
@@ -82,15 +82,29 @@ console.log(sum());
                             <ul>
                                 <li>Traceur</li>
                                 <li>BabelJS (utilisé par Netflix, Yahoo, spotify...)</li>
+                                <li>TypeScript</li>
+                            </ul>
+                            <p>Usage :</p>
+                            <ul>
+                                <li>En standalone dans le navigateur</li>
+                                <li>Via un module loader</li>
                             </ul>
                     </section>
                     <section>
-                            <h2>Bundles</h2>
+                        <section>
+                            <h2>Module loaders & bundles</h2>
+                            <p>En mode développement :</p>
+                            <p> - Lazy loading automatique de fichier (import)</p>
+                             <p>En mode production :</p>
+                            <p> - Génération de bundle en parcourant les dépendances de chaque module</p><br>
                             <ul>
                                 <li>SystemJS</li>
                                 <li>Webpack</li>
                             </ul>
-                            A compléter...
+                        </section>
+                        <section>
+                            <h2>SystemJS</h2>
+                        </section>
                     </section>
                     <section>
                             <h2>Exemple de code ES6</h2><br>
