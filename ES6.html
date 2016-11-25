@@ -35,6 +35,20 @@
                                 <li>...</li>
                             </ul>
                         </section>
+                        <section>
+                            <h3>Les fonctions fléchées</h3>
+                            <p>Elles simplifient la syntaxe des fonctions JavaScript classiques.</p>
+                            <p>Une fonction fléchée ne porte pas <b>this, super, arguments</b></p>
+                             <pre>
+                                <code  contenteditable data-trim class="javascript">
+this.number = 0;
+
+setInterval(() => {
+    this.number++;
+}, 1000);
+                                </code>
+                            </pre>
+                        </section>
                          <section>
                             <h3>Les classes</h3>
                             <p>La syntaxe des classes en JavaScript se rapproche beaucoup des langages de POO classiques.</p>
@@ -104,6 +118,22 @@ console.log(sum());
                         </section>
                         <section>
                             <h2>SystemJS</h2>
+                            <p>SystemJS se base sur l'ES6 module polyfill (loader) et fonctionne avec le gestionnaire de paquet JSPM.</p>
+                            <p>JSPM permet la gestion de module JavaScript de n'importe quel type (CommonJS, AMD, ES6)</p>
+                            <pre>
+                                <code contenteditable data-trim class="bash">
+> npm install systemjs
+> npm install jspm
+> jspm init //system.config.js
+> jspm install angular
+                                </code>
+                            </pre>
+                            <p>Le paquet installé est utilisable de la manière suivante :</p>
+                            <pre>
+                                <code contenteditable data-trim class="javascript">
+import angular from 'angular';
+                                </code>
+                            </pre>
                         </section>
                     </section>
                     <section>
@@ -126,7 +156,7 @@ console.log(sum());
 		Reveal.initialize({
                     history: true,
                     width: 1100,
-                    transition: 'fade', // none/fade/slide/convex/concave/zoom
+                    transition: 'slide', // none/fade/slide/convex/concave/zoom
 		    dependencies: [
 
 		        // Syntax highlight for <code> elements
