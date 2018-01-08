@@ -7,8 +7,8 @@
   * [x] JavaScript moderne (ES6 & TypeScript)
   
 # TODO
-  * [ ] Angular 2
-  
+  * [ ] Angular 5+
+  * [ ] React
 
 ## Prérequis
 Installer NodeJS + GIT 
